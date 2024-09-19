@@ -1,0 +1,2280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indice de Salud Financiera - Kamina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* for icons*/
+
+
+
+        /* for icons*/
+
+
+
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .div-principal {
+            width: 788px;
+
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+
+
+
+        }
+
+        .first_container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            aspect-ratio: 1 / 1.414;
+        }
+
+        .part-score {
+            background-color: #2f2a38;
+            width: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"%3E%3Cg class="cls-70"%3E%3Cg%3E%3Cpath fill="%23363143" d="M28.22,40.04c17.17,20.85,49.76,25.52,69.11,6.69l31.11-30.26c19.36-18.83,23.86-48.27,6.7-69.11l-3.77-4.58c-17.16-20.84-49.76-25.52-69.11-6.69l-31.11,30.25C11.79-14.83,7.28,14.61,24.45,35.46l3.77,4.58Z"/%3E%3Cpath fill="%23363143" d="M35.93,256.95c19.09,19.1,50.54,19.3,69.44,0L343.65,13.59c18.89-19.3,19.1-50.34,0-69.44l-4.19-4.19c-19.09-19.09-50.55-19.29-69.44,0L31.74,183.31c-18.89,19.29-19.1,50.34,0,69.44l4.19,4.19Z"/%3E%3Cpath fill="%23363143" d="M566.65-54.51l-4.19-4.19c-19.09-19.09-50.45-19.2-69.44,0L32.41,406.98c-18.99,19.2-19.09,50.34,0,69.44l4.19,4.19c19.09,19.1,50.44,19.2,69.44,0L566.65,14.93c18.99-19.2,19.1-50.34,0-69.44Z"/%3E%3Cpath fill="%23363143" d="M567.15,404.4l-124.03-123.16-2.1-2.1c-19.09-19.09-50.42-19.16-69.44,0l-123.16,124.03c-19.02,19.16-19.1,50.34,0,69.44l4.19,4.19c19.1,19.1,50.41,19.16,69.44,0l84.51-85.11,86.95,86.34c19.16,19.03,50.34,19.09,69.44,0l4.19-4.19c19.09-19.09,19.16-50.42,0-69.44Z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border-radius: 0 0 20px 20px;
+            background-position: center 3px;
+        }
+
+        .part {
+            flex: 1;
+            border: none;
+            margin: 0;
+            width: 100%;
+
+        }
+
+        .div-segundo {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(100, 1fr);
+            margin-top: 20px;
+            gap: 3px
+        }
+
+        .grid-container {
+            align-items: center;
+            justify-content: center;
+
+        }
+
+
+
+        .square {
+            width: 100%;
+            height: 40px;
+            border-radius: 5px;
+            /* Crea un borde interno */
+
+        }
+
+
+        .square.active {
+            background-color: red;
+        }
+
+        .score_section {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            height: 100px;
+            align-items: center;
+        }
+
+
+        .icon {
+            height: 28px;
+            max-height: 100%;
+            width: auto;
+        }
+
+
+        .score-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .izquierda {
+            flex: 1;
+            text-align: right;
+            justify-content: right;
+
+        }
+
+        .derecha {
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+
+        .score-number-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .score {
+            display: inline-block;
+            padding: 1px 17px;
+            font-weight: bold;
+            color: white;
+            font-size: 70px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            text-align: center;
+            word-spacing: 0px;
+        }
+
+        .nombre-section {
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            font-weight: 700;
+            text-align: right;
+            font-size: 11px;
+        }
+
+        .nombre-section p {
+            text-align: right;
+            all: unset;
+            margin-bottom: 10px;
+            /* Cambia solo el margen */
+            /* Cambia solo el padding */
+            color: inherit;
+            /* Hereda el color del contenedor padre */
+        }
+
+        .nombre-section2 {
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            font-weight: 700;
+            text-align: right;
+            font-size: 11px;
+            color: #301b96;
+        }
+
+        .nombre-section2 p {
+            text-align: right;
+            all: unset;
+            margin-bottom: 10px;
+            /* Cambia solo el margen */
+            /* Cambia solo el padding */
+            color: inherit;
+            /* Hereda el color del contenedor padre */
+        }
+
+        .indice-text {
+            font-weight: 200;
+            font-size: 40px
+        }
+
+        .salud-text {
+            font-weight: 700;
+            font-size: 40px
+        }
+
+
+
+        .line-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .line {
+            height: 4px;
+            background-color: #413d4f;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .line-left {
+            width: 33.3%;
+            left: 0;
+        }
+
+        .line-center {
+            width: 33.3%;
+            left: 33.3%;
+        }
+
+        .line-right {
+            width: 33.3%;
+            right: 0;
+        }
+
+        .point {
+            width: 6px;
+            height: 6px;
+            background-color: #f5f2f4;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Puntos en los extremos */
+        .point-start {
+            left: 0;
+        }
+
+        .point-end {
+            right: 0;
+        }
+
+        /* Puntos en las divisiones */
+        .point-div1 {
+            left: 33.3%;
+        }
+
+        .point-div2 {
+            left: 66.6%;
+        }
+
+        /* Contenedor de texto en las divisiones */
+        .estado-container {
+            position: absolute;
+            top: -25px;
+            width: 33.3%;
+            text-align: center;
+        }
+
+        /* Texto */
+        .estado {
+            font-size: 35px;
+            margin-top: 10px;
+            color: #fbc02d;
+            font-weight: 700;
+        }
+
+
+
+        .footer-1 {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            padding: 10px;
+            font-size: 12px;
+            padding-right: 40px;
+            padding-left: 40px;
+        }
+
+
+
+
+        .footer-text {
+            color: #332298;
+            font-weight: 600;
+        }
+
+        .page-number {
+            color: #332298;
+            font-weight: 600;
+
+        }
+
+        .page-number-2 {
+            color: #332298;
+            font-weight: 600;
+            transform: translateX(193px);
+        }
+
+        .kamina-link {
+            background-color: #332298;
+            /* Color de fondo púrpura */
+            color: white;
+            /* Color del texto */
+            padding: 2px 5px;
+            /* Espacio interno (padding) */
+            border-radius: 15px;
+            /* Bordes redondeados */
+            text-decoration: none;
+            /* Elimina el subrayado del enlace */
+            font-weight: bold;
+            z-index: 5;
+        }
+
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            /* Espaciado igual entre las columnas */
+            width: 100%;
+
+        }
+
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            /* Espaciado igual entre las columnas */
+            width: 100%;
+
+        }
+
+        .info-part {
+            text-align: center;
+            flex: 1;
+            position: relative
+                /* Hace que cada columna ocupe el mismo espacio */
+                /* Margen lateral para el espacio entre columnas */
+        }
+
+
+
+        .info-grande {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            padding: 15px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #f5f2f4;
+            text-align: center;
+            height: 165px;
+            font-size: 11px;
+            font-weight: 600;
+
+        }
+
+        .info-grande2 {
+            border-radius: 20px;
+            padding: 15px;
+            border-width: 2px;
+            border-style: solid;
+            background-color: #2f2a38;
+            text-align: center;
+            height: 165px;
+            font-size: 11px;
+            font-weight: 600;
+            padding-bottom: 90px;
+
+
+        }
+
+        .info-pequeno {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .info-item-pequeno {
+            font-weight: 600;
+            border-radius: 20px;
+            padding: 15px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #f5f2f4;
+            height: 50px;
+            font-size: 11px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+        }
+
+        .semaforo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1px;
+        }
+
+        .subscore-item {
+            border-radius: 30px;
+            padding: 15px;
+            margin-top: 15px;
+            border-width: 2px;
+            border-style: solid;
+            border-color: #b3aed9;
+            text-align: center;
+            height: 350px;
+            margin-bottom: 8px;
+            padding-bottom: 23px;
+        }
+
+
+        .arrows-container {
+            height: 80px;
+            padding-left: 110px;
+            padding-right: 110px;
+        }
+
+        .flechas-estado {
+            transform: translateY(24px);
+        }
+
+        .insights_section {
+            color: #2f2a38;
+            text-align: justify;
+            padding-left: 40px;
+            padding-right: 40px;
+
+        }
+
+        #subscore-general {
+            text-align: left;
+        }
+
+        #subscore-accionable {
+            text-align: left;
+
+        }
+
+        .circles {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 5px;
+        }
+
+        .circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 2px solid #cccccc;
+            background-color: white;
+            box-shadow: inset 0 0 0 1px white;
+        }
+
+        .circle2 {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid #cccccc;
+            background-color: #2f2a38;
+            box-shadow: inset 0 0 0 1px white;
+            border-width: 0.1px;
+        }
+
+
+
+        .titulo-subscores {
+            font-size: 12px;
+            color: #2d1d94;
+            font-weight: 600;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .titulo-subscores p {
+            /* Cambia solo el padding */
+            color: inherit;
+            /* Hereda el color del contenedor padre */
+            all: unset;
+        }
+
+        .texto-subscores {
+            font-size: 10px;
+            font-weight: 600;
+            text-align: justify;
+
+        }
+
+        .titulo-subscores2 {
+            font-size: 12px;
+            color: white;
+            font-weight: 600;
+            margin-top: 1px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .titulo-subscores2 p {
+            /* Cambia solo el padding */
+            color: inherit;
+            /* Hereda el color del contenedor padre */
+            all: unset;
+        }
+
+        .texto-subscores2 {
+            font-size: 11px;
+            font-weight: 600;
+            text-align: justify;
+        }
+
+        #life2-1 {
+            white-space: pre-line;
+        }
+
+        #psyco2-1 {
+            white-space: pre-line;
+        }
+
+        #money2-1 {
+            white-space: pre-line;
+        }
+
+        .cos-container {
+            padding-left: 40px;
+            padding-right: 40px;
+            background: #eceaf5;
+            border-bottom-left-radius: 60px;
+            /* Radio solo en la esquina inferior izquierda */
+            border-bottom-right-radius: 60px;
+            /* Radio solo en la esquina inferior derecha */
+        }
+
+        .items-2 {
+            padding-left: 40px;
+            padding-right: 40px;
+            transform: translateY(-60px);
+        }
+
+        /* PAGINA 2*/
+
+        .score-visualization-container {
+            margin-top: 100px;
+
+            display: grid;
+            grid-template-columns: repeat(100, 1fr);
+
+
+            align-items: flex-end;
+            position: relative;
+            margin-bottom: 90px;
+
+            gap: 3px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+
+        .content-section {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+
+
+
+        .background-icon {
+            background-image:
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"%3E%3Cdefs%3E%3ClinearGradient id="grad1" x1="0%25" y1="0%25" x2="0%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23ffffff;stop-opacity:0.8" /%3E%3Cstop offset="100%25" style="stop-color:%23f3f4f8;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Cpath fill="url(%23grad1)" d="M35.93,256.95c19.09,19.1,50.54,19.3,69.44,0L343.65,13.59c18.89-19.3,19.1-50.34,0-69.44l-4.19-4.19c-19.09-19.09-50.55-19.29-69.44,0L31.74,183.31c-18.89,19.29-19.1,50.34,0,69.44l4.19,4.19Z"/%3E%3Cpath fill="url(%23grad1)" d="M566.65-54.51l-4.19-4.19c-19.09-19.09-50.45-19.2-69.44,0L32.41,406.98c-18.99,19.2-19.09,50.34,0,69.44l4.19,4.19c19.09,19.1,50.44,19.2,69.44,0L566.65,14.93c18.99-19.2,19.1-50.34,0-69.44Z"/%3E%3Cpath fill="%23f3f4f8" d="M567.15,404.4l-124.03-123.16-2.1-2.1c-19.09-19.09-50.42-19.16-69.44,0l-123.16,124.03c-19.02,19.16-19.1,50.34,0,69.44l4.19,4.19c19.1,19.1,50.41,19.16,69.44,0l84.51-85.11,86.95,86.34c19.16,19.03,50.34,19.09,69.44,0l4.19-4.19c19.09-19.09,19.16-50.42,0-69.44Z"/%3E%3C/g%3E%3C/svg%3E');
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 0 0 20px 20px;
+            width: 100%;
+            height: 460px;
+            z-index: 1;
+            position: relative;
+        }
+
+
+        .footer-2 {
+            display: flex;
+            position: absolute;
+            justify-content: space-between;
+            align-items: start;
+            text-align: left;
+            font-size: 12px;
+            padding-right: 40px;
+            padding-left: 40px;
+            transform: translateY(400px);
+            z-index: 20;
+        }
+
+        .footer-2-inside {
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+
+
+        .cartel {
+            padding-top: 7px;
+            padding-left: 3px;
+            padding-right: 3px;
+            width: 90px;
+            height: 82px;
+            border: 2px solid #8b87f4;
+            border-radius: 15px;
+            text-align: center;
+            line-height: 14px;
+            position: absolute;
+            z-index: 0;
+            transform: translate(-45px, -182px);
+        }
+
+        .div-marco {
+            position: absolute;
+            background-color: #eceaf5;
+            height: 10px;
+            width: 15px;
+            z-index: 1;
+            transform: translate(-5px, -92px);
+
+        }
+
+        .square-2 {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: inset 0 0 0 1px #a2a1ad;
+            z-index: 10;
+            position: relative;
+        }
+
+
+
+        .stats-icon {
+            margin-bottom: 6px;
+        }
+
+        .tu-camino {
+            font-size: 12px;
+            color: #2f1b9b;
+            font-weight: 600;
+
+        }
+
+        .mejorar {
+            font-size: 13px;
+            color: #8a08ff;
+            font-weight: 600;
+            /* Añade la misma transformación a la clase mejorar */
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(100, 1fr);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="div-principal">
+
+
+
+        <div class="first_container">
+
+            <div class="part part-score">
+                <div class="score_section">
+                    <div class="header">
+
+                        <a href="https://www.kamina.app/">
+
+                            <div class="icon">
+                                <svg width="100%" height="auto" viewBox="0 0 107 20" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.776252 11.6591C1.44464 12.3274 2.54669 12.3354 3.20911 11.6591L11.56 3.1311C12.2224 2.45475 12.2284 1.36663 11.56 0.69824L11.4128 0.551034C10.7444 -0.117356 9.64237 -0.125313 8.97995 0.551034L0.629047 9.07898C-0.0333759 9.75533 -0.0393436 10.8435 0.629047 11.5118L0.776252 11.6591ZM0.800123 19.4967C1.46851 20.1651 2.56857 20.1691 3.23299 19.4967L19.3758 3.17686C20.0422 2.50449 20.0442 1.41238 19.3758 0.743992L19.2286 0.596787C18.5602 -0.0716034 17.4602 -0.075582 16.7957 0.596787L0.652918 16.9167C-0.0134833 17.589 -0.0154726 18.6811 0.652918 19.3495L0.800123 19.4967ZM8.36925 19.3634C9.03764 20.0318 10.1357 20.0358 10.8021 19.3634L13.7661 16.3816L16.8136 19.4072C17.486 20.0736 18.5781 20.0756 19.2465 19.4072L19.3937 19.26C20.0621 18.5916 20.0641 17.4935 19.3937 16.8271L15.0472 12.5105L14.9736 12.4369C14.3052 11.7685 13.2071 11.7645 12.5407 12.4369L8.22403 16.7834C7.55763 17.4538 7.55564 18.5479 8.22403 19.2162L8.36925 19.3634ZM99.7796 8.77662C100.347 8.7806 100.842 8.88205 101.266 9.07898C101.691 9.27592 102.043 9.54248 102.328 9.87668C102.61 10.2109 102.823 10.5888 102.964 11.0086C103.106 11.4263 103.177 11.858 103.177 12.3036C103.177 12.7472 103.106 13.1808 102.964 13.5966C102.823 14.0183 102.61 14.3903 102.328 14.7285C102.045 15.0627 101.691 15.3292 101.266 15.5262C100.84 15.7231 100.345 15.8246 99.7796 15.8285C99.3002 15.8285 98.8506 15.747 98.4349 15.5898C98.0191 15.4287 97.6571 15.196 97.3428 14.8936C97.0285 14.5872 96.7798 14.2172 96.6068 13.7796C96.4297 13.34 96.3402 12.8447 96.3362 12.2896C96.3402 11.7346 96.4297 11.2393 96.6068 10.8037C96.7798 10.372 97.0285 10.002 97.3428 9.69963C97.6571 9.40124 98.0191 9.1685 98.4349 9.01135C98.8506 8.85619 99.3002 8.77662 99.7796 8.77662ZM103.225 8.09231C103 7.70242 102.698 7.36822 102.316 7.08973C101.934 6.80725 101.506 6.59042 101.027 6.43725C100.547 6.28408 100.044 6.20451 99.521 6.20451C98.6676 6.20053 97.8739 6.32585 97.1419 6.58247C96.4058 6.83709 95.7653 7.22301 95.2143 7.73425C94.6633 8.24549 94.2356 8.88205 93.9252 9.64592C93.6189 10.4058 93.4617 11.2891 93.4578 12.2936C93.4617 13.3161 93.6109 14.2133 93.9093 14.9831C94.2077 15.7569 94.6255 16.4034 95.1646 16.9226C95.6997 17.4458 96.3323 17.8357 97.0603 18.0943C97.7884 18.3549 98.5861 18.4802 99.4514 18.4762C99.7816 18.4683 100.128 18.4245 100.498 18.339C100.864 18.2534 101.226 18.1222 101.58 17.9531C101.934 17.784 102.252 17.5711 102.543 17.3205C102.829 17.0659 103.058 16.7655 103.227 16.4233L103.368 18.1222H106.082V6.48897H103.321L103.225 8.09231ZM91.6157 18.1222V12.0092C91.6117 11.0921 91.4824 10.2825 91.2298 9.57431C90.9772 8.86613 90.6251 8.26936 90.1755 7.78199C89.7279 7.2986 89.2047 6.9286 88.6099 6.67795C88.0112 6.42531 87.3706 6.29999 86.6824 6.29999C85.9583 6.29999 85.2859 6.44521 84.6652 6.73962C84.0486 7.03005 83.4419 7.46769 82.861 8.04457L82.672 6.46311H80.0999V18.1202H82.9545V12.1743C82.9545 11.7307 83.0301 11.3089 83.1713 10.919C83.3126 10.5252 83.5135 10.179 83.7761 9.88066C84.0386 9.58227 84.3549 9.34555 84.715 9.17646C85.077 9.00737 85.4828 8.91984 85.9264 8.91786C86.5411 8.92183 87.0544 9.05909 87.4721 9.33162C87.8898 9.60216 88.2041 9.97216 88.417 10.4396C88.6298 10.9031 88.7353 11.4343 88.7353 12.033V18.1202H91.6157V18.1222ZM74.4365 3.20868C74.4405 3.58266 74.528 3.89299 74.6891 4.14165C74.8503 4.39428 75.0631 4.57729 75.3177 4.70461C75.5723 4.82993 75.8489 4.88961 76.1353 4.88961C76.4218 4.88961 76.6983 4.82993 76.9529 4.70461C77.2095 4.57928 77.4204 4.39428 77.5815 4.14165C77.7426 3.89299 77.8302 3.58266 77.8341 3.20868C77.8302 2.8347 77.7446 2.52438 77.5815 2.27373C77.4204 2.02507 77.2075 1.84206 76.9529 1.71475C76.6983 1.58943 76.4218 1.52577 76.1353 1.52577C75.8489 1.52577 75.5723 1.58943 75.3177 1.71475C75.0631 1.84007 74.8503 2.02507 74.6891 2.27373C74.528 2.52438 74.4405 2.8347 74.4365 3.20868ZM77.5755 6.44123V18.1222H74.6971V6.44123H77.5755ZM64.1719 18.1222V11.8918C64.1719 11.5059 64.2316 11.1399 64.349 10.7937C64.4623 10.4476 64.6314 10.1452 64.8522 9.87668C65.0691 9.61012 65.3356 9.39727 65.646 9.24409C65.9563 9.09092 66.3064 9.01533 66.6963 9.01135C67.0862 9.01533 67.4204 9.09092 67.6949 9.24011C67.9734 9.38533 68.2021 9.59022 68.3792 9.85281C68.5523 10.1134 68.6816 10.4118 68.7691 10.7539C68.8507 11.0921 68.8904 11.4581 68.8904 11.8441V18.1222H71.7689V11.8441C71.7689 10.6764 71.5879 9.68173 71.2258 8.85818C70.8598 8.03661 70.3128 7.41 69.5867 6.97833C68.8546 6.54268 67.9396 6.32585 66.8375 6.32187C66.3342 6.31789 65.8508 6.37757 65.3854 6.50687C64.9258 6.6322 64.4882 6.84903 64.0804 7.15935C63.6686 7.46968 63.2907 7.89935 62.9445 8.4464C62.7198 7.91527 62.4293 7.49156 62.0673 7.17129C61.7052 6.84903 61.3054 6.62026 60.8638 6.47902C60.4241 6.34176 59.9666 6.27015 59.4991 6.27413C59.1252 6.27015 58.7393 6.32187 58.3474 6.4273C57.9535 6.53273 57.5914 6.70182 57.2533 6.93854C56.9151 7.17526 56.6406 7.48559 56.4317 7.87946L56.2189 6.46311H53.5533V18.1202H56.4317V11.8918C56.4317 11.5059 56.4874 11.1359 56.6008 10.7878C56.7102 10.4376 56.8713 10.1273 57.0842 9.8548C57.301 9.58028 57.5596 9.36345 57.866 9.2063C58.1683 9.04915 58.5184 8.96957 58.9083 8.9656C59.3062 8.96957 59.6523 9.04915 59.9467 9.2063C60.2451 9.36345 60.4938 9.58028 60.6947 9.8548C60.8956 10.1253 61.0448 10.4376 61.1423 10.7878C61.2397 11.1379 61.2915 11.5079 61.2915 11.8918V18.1222H64.1719ZM44.8224 8.77662C45.3893 8.7806 45.8847 8.88205 46.3084 9.07898C46.7341 9.27592 47.0862 9.54248 47.3706 9.87668C47.6531 10.2109 47.866 10.5888 48.0072 11.0086C48.1484 11.4263 48.2201 11.858 48.2201 12.3036C48.2201 12.7472 48.1484 13.1808 48.0072 13.5966C47.866 14.0183 47.6531 14.3903 47.3706 14.7285C47.0882 15.0627 46.7341 15.3292 46.3084 15.5262C45.8827 15.7231 45.3874 15.8246 44.8224 15.8285C44.343 15.8285 43.8934 15.747 43.4777 15.5898C43.0619 15.4287 42.6999 15.196 42.3836 14.8936C42.0693 14.5872 41.8206 14.2172 41.6475 13.7796C41.4705 13.34 41.379 12.8447 41.377 12.2896C41.381 11.7346 41.4725 11.2393 41.6475 10.8037C41.8206 10.372 42.0693 10.002 42.3836 9.69963C42.6979 9.40124 43.0599 9.1685 43.4777 9.01135C43.8934 8.85619 44.343 8.77662 44.8224 8.77662ZM48.2678 8.09231C48.043 7.70242 47.7406 7.36822 47.3587 7.08973C46.9768 6.80725 46.5491 6.59042 46.0697 6.43725C45.5903 6.28408 45.087 6.20451 44.5638 6.20451C43.7104 6.20053 42.9167 6.32585 42.1846 6.58247C41.4486 6.83709 40.8081 7.22301 40.2571 7.73425C39.706 8.24549 39.2783 8.88205 38.968 9.64592C38.6617 10.4058 38.5045 11.2891 38.5005 12.2936C38.5045 13.3161 38.6537 14.2133 38.9521 14.9831C39.2505 15.7569 39.6682 16.4034 40.2073 16.9226C40.7424 17.4458 41.375 17.8357 42.1031 18.0943C42.8312 18.3549 43.6288 18.4802 44.4942 18.4762C44.8244 18.4683 45.1705 18.4245 45.5405 18.339C45.9065 18.2534 46.2686 18.1222 46.6227 17.9531C46.9768 17.784 47.2951 17.5711 47.5855 17.3205C47.8719 17.0659 48.1007 16.7655 48.2698 16.4233L48.411 18.1222H51.1244V6.48897H48.3633L48.2678 8.09231ZM26.9131 1.62722V18.1222H29.7916V12.8586L34.345 18.1202H37.8142V17.9073L32.4114 11.9614L37.1538 6.65209V6.48698H33.7084L29.7916 11.1597V1.62722H26.9131ZM4.12019 0.648508C3.51944 -0.0815497 2.37562 -0.246658 1.69728 0.413776L0.609154 1.47405C-0.0691826 2.13448 -0.226334 3.16492 0.374422 3.89697L0.505713 4.0581C1.10647 4.78815 2.25029 4.95326 2.92863 4.29283L4.01874 3.23255C4.69708 2.57212 4.85423 1.54168 4.25347 0.809638L4.12019 0.648508Z"
+                                        fill="white" />
+                                </svg>
+                            </div>
+
+                        </a>
+
+                        <div class="nombre-section">
+                            <p>
+                            <p id="nombre"></p>
+                            <br />
+                            <p>CI: <span id="cedula"></span></p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="score-container">
+                        <div class="izquierda">
+
+                            <span class="indice-text"> Índice de </span> <br>
+
+                            <span class="salud-text">
+                                Salud Financiera
+                            </span>
+                        </div>
+                        <div class="derecha score-number-container">
+                            <span class="score"> <span id="score"></span> / 100 </span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-container" id="grid-container"></div>
+
+                    <div class="estado-container" id="estado-container">
+                    </div>
+
+                    <div class="line-container">
+                        <!-- Secciones de la línea -->
+                        <div class="line line-left" id="line-left"></div>
+                        <div class="line line-center" id="line-center"></div>
+                        <div class="line line-right" id="line-right"></div>
+
+                        <!-- Puntos -->
+                        <div class="point point-start"></div>
+                        <div class="point point-div1"></div>
+                        <div class="point point-div2"></div>
+                        <div class="point point-end"></div>
+
+                        <!-- Contenedor de texto -->
+                        <div class="estado-container" id="estadoContainer">
+                            <span class="estado" id="estado"></span>
+                        </div>
+                    </div>
+
+                    <div class="arrows-container">
+
+                        <div class="flechas-estado">
+                            <?xml version="1.0" encoding="UTF-8"?>
+
+                        </div>
+
+                    </div>
+
+                    <div class="info-container">
+                        <div class="info-part">
+
+                            <div class="info-grande">
+                                <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.1 29.1" width="35"
+                                    height="35">
+                                    <defs>
+                                        <style>
+                                            .cls-1 {
+                                                fill: none;
+                                                stroke: #fff;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: .75px;
+                                            }
+
+                                            .cls-2 {
+                                                fill: #fff;
+                                            }
+
+                                            .cls-3 {
+                                                fill: #292531;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Layer_1-2" data-name="Layer_1">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <path class="cls-1"
+                                                        d="M28.72,14.55c0-4.4-2.01-8.34-5.16-10.94-2.45,2.02-5.59,3.23-9.01,3.23s-6.56-1.21-9.01-3.23C2.38,6.21.38,10.14.38,14.55s2.01,8.34,5.16,10.94c2.45-2.02,5.59-3.23,9.01-3.23s6.56,1.21,9.01,3.23c3.15-2.6,5.16-6.53,5.16-10.94Z" />
+                                                    <path class="cls-1"
+                                                        d="M5.54,25.49c2.45,2.02,5.59,3.23,9.01,3.23s6.56-1.21,9.01-3.23c-2.45-2.02-5.59-3.23-9.01-3.23s-6.56,1.21-9.01,3.23Z" />
+                                                    <path class="cls-1"
+                                                        d="M23.56,3.61C21.11,1.59,17.97.38,14.55.38S7.99,1.59,5.54,3.61c2.45,2.02,5.59,3.23,9.01,3.23s6.56-1.21,9.01-3.23Z" />
+                                                </g>
+                                                <line class="cls-1" x1="14.55" y1=".38" x2="14.55" y2="9.91" />
+                                                <line class="cls-1" x1="14.55" y1="19.19" x2="14.55" y2="28.72" />
+                                                <line class="cls-1" x1="5.35" y1="14.55" x2=".38" y2="14.55" />
+                                                <line class="cls-1" x1="23.75" y1="14.55" x2="28.72" y2="14.55" />
+                                                <g>
+                                                    <path class="cls-1"
+                                                        d="M21.05,11.94C20.47,5.36,17.79.38,14.55.38s-5.93,4.99-6.5,11.57" />
+                                                    <path class="cls-1"
+                                                        d="M8.05,17.15c.57,6.58,3.26,11.57,6.5,11.57s5.93-4.99,6.5-11.57" />
+                                                </g>
+                                            </g>
+                                            <path class="cls-3"
+                                                d="M14.55,20.31c-2.56,0-5.02-.77-7.14-2.24-1.15-.8-2.15-1.76-2.96-2.86-.3-.4-.3-.94,0-1.34.82-1.1,1.81-2.06,2.96-2.86,2.11-1.46,4.58-2.24,7.14-2.24s5.02.77,7.14,2.24c1.15.8,2.15,1.76,2.96,2.86.3.4.3.94,0,1.34-.82,1.1-1.82,2.06-2.96,2.86-2.11,1.46-4.58,2.24-7.14,2.24Z" />
+                                            <path class="cls-2"
+                                                d="M21.05,11.94c-1.85-1.28-4.08-2.04-6.5-2.04s-4.65.76-6.5,2.04c-1.04.72-1.95,1.59-2.7,2.6.75,1.01,1.67,1.89,2.7,2.6,1.85,1.28,4.08,2.04,6.5,2.04s4.65-.76,6.5-2.04c1.04-.72,1.95-1.59,2.7-2.6-.75-1.01-1.67-1.89-2.7-2.6Z" />
+                                            <circle class="cls-3" cx="14.55" cy="14.55" r="3.12" />
+                                            <circle class="cls-2" cx="14.55" cy="14.55" r=".62" />
+                                        </g>
+                                    </g>
+                                </svg>
+                                <p id="subscore-general"> </p>
+                            </div>
+
+
+
+                        </div>
+                        <div class="info-part">
+
+                            <div class="info-grande">
+                                <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.69 33.04"
+                                    width="35" height="35">
+                                    <defs>
+                                        <style>
+                                            .cls-1 {
+                                                fill: none;
+                                                stroke: #fff;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: .75px;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Layer_1-2" data-name="Layer_1">
+                                        <g>
+                                            <path class="cls-1"
+                                                d="M11.46,30.3h-6.16s0,0,0,0v.87c0,.83.67,1.49,1.49,1.49h5.02c.82,0,1.49-.67,1.49-1.49v-.87h-1.85Z" />
+                                            <path class="cls-1"
+                                                d="M14.94.38c-.31-.02-.57.22-.57.53v2.22c0,.22-.21.37-.42.31-.16-.05-.33-.07-.5-.07-1.05,0-1.89.91-1.77,1.98.09.81.74,1.47,1.55,1.57.26.03.5,0,.73-.06.21-.06.42.09.42.31v2.42c0,.4.33.73.73.73h2.42c.22,0,.37-.21.31-.42-.05-.16-.07-.33-.07-.5,0-1.05.91-1.89,1.98-1.77.81.09,1.47.74,1.57,1.55.03.26,0,.51-.06.73-.06.21.1.41.31.41h1.17c.3,0,.54-.23.55-.53,0-.17.01-.33.01-.5,0-4.74-3.72-8.63-8.37-8.92Z" />
+                                            <path class="cls-1"
+                                                d="M2.11,15.41c.22,0,.38.21.31.41-.07.23-.09.48-.06.73.1.81.76,1.46,1.57,1.55,1.07.12,1.98-.72,1.98-1.77,0-.17-.02-.34-.07-.5-.06-.21.09-.42.31-.42h1.3s0,0,0,0h1.85s0,0,0,0h0s0,0,0,0v-3.16c0-.22-.21-.37-.42-.31-.23.07-.48.09-.73.06-.81-.1-1.46-.76-1.55-1.57-.12-1.07.72-1.98,1.77-1.98.17,0,.34.02.5.07.21.06.42-.09.42-.31v-2.2c0-.32-.27-.57-.59-.55C4.11,5.77.4,9.64.38,14.33c0,.37.02.73.06,1.08h0s0,0,0,0h1.68Z" />
+                                            <path class="cls-1"
+                                                d="M17.97,15.61c-.1-.12-.25-.2-.43-.2h-1.03c-.22,0-.37-.21-.31-.42.05-.16.07-.33.07-.5,0-1.05-.91-1.89-1.98-1.77-.04,0-.09.01-.13.02-.01,0-.02,0-.04,0-.04,0-.08.02-.12.03-.01,0-.02,0-.03.01-.03,0-.06.02-.09.03-.02,0-.03.01-.05.02-.03.01-.07.03-.1.04-.02,0-.03.02-.05.02-.02.01-.04.02-.06.03-.02,0-.03.02-.05.03,0,0,0,0,0,0,0,0,0,0,0,0-.45.28-.77.75-.84,1.3-.03.26,0,.5.06.73.06.21-.09.42-.31.42h-3.16s0,0,0,0h0v3.15c0,.22.21.37.42.31.16-.05.33-.07.5-.07,1.05,0,1.89.91,1.77,1.98-.09.81-.74,1.47-1.55,1.57-.26.03-.51,0-.74-.06-.21-.06-.41.1-.41.31v3.16h0s2.15,0,2.15,0c0,0,0,0,0,0h0s0,0,0,0h1.85l.06-.32c.36-1.9,1.28-3.65,2.58-5.09,1.07-1.19,1.82-2.66,2.13-4.29h0c.03-.17-.02-.33-.12-.45Z" />
+                                            <rect class="cls-1" x="9.31" y="15.41" width="0" height="0"
+                                                transform="translate(-7.92 10.19) rotate(-41.99)" />
+                                            <path class="cls-1"
+                                                d="M10.24,18.81c-.17,0-.34.02-.5.07-.21.06-.42-.09-.42-.31v-3.15h0s0,0,0,0h0s-1.85,0-1.85,0h0s0,0,0,0h-1.3c-.22,0-.37.21-.31.42.05.16.07.33.07.5,0,1.05-.91,1.89-1.98,1.77-.81-.09-1.47-.74-1.57-1.55-.03-.26,0-.51.06-.73.06-.21-.1-.41-.31-.41H.43s0,0,0,0c.22,1.94,1.07,3.69,2.33,5.05,1.29,1.39,2.13,3.14,2.49,5l.06.3h0s2.15,0,2.15,0h0s1.85,0,1.85,0h0v-3.16c0-.22.21-.38.41-.31.23.07.48.09.74.06.81-.1,1.46-.76,1.55-1.57.12-1.07-.72-1.98-1.77-1.98Z" />
+                                            <polygon class="cls-1"
+                                                points="11.46 28.16 5.31 28.16 5.31 28.16 5.31 30.3 5.31 30.3 11.46 30.3 13.32 30.3 13.32 28.16 11.46 28.16" />
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                <p id="subscore-accionable"> </p>
+                            </div>
+
+                        </div>
+
+                        <div class="info-part ">
+
+                            <div class="info-pequeno">
+
+                                <div class="info-item-pequeno">
+                                    <p id="financial-1">
+                                        Contenido small 1
+                                    </p>
+                                </div>
+
+                                <svg width="2px" height="30px" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="1" y1="0" x2="1" y2="100%" stroke="#f2f3f4" stroke-width="2" />
+                                </svg>
+
+                                <div class="info-item-pequeno">
+                                    <p id="financial-2">
+                                        Contenido small 2
+                                    </p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="part">
+
+                <div class="insights_section">
+
+                    <div class="info-container">
+                        <div class="info-part subscore-item">
+
+                            <div class="circles">
+                                <div class="circle" id="circle1"></div>
+                                <div class="circle" id="circle2"></div>
+                                <div class="circle" id="circle3"></div>
+                            </div>
+                            <div class="titulo-subscores">
+                                <p>Destrezas y hábitos</p>
+                            </div>
+
+
+                            <svg id="habitos" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 117.3 117.92" height="135"
+                                width="auto">
+                                <defs>
+                                    <style>
+                                        #habitos .cls-unique-1 {
+                                            fill: url(#linear-gradient-8);
+                                        }
+
+                                        #habitos .cls-unique-2 {
+                                            fill: url(#linear-gradient-7);
+                                        }
+
+                                        #habitos .cls-unique-3 {
+                                            fill: url(#linear-gradient-5);
+                                        }
+
+                                        #habitos .cls-unique-4 {
+                                            fill: url(#linear-gradient-6);
+                                        }
+
+                                        #habitos .cls-unique-5 {
+                                            fill: url(#linear-gradient-9);
+                                        }
+
+                                        #habitos .cls-unique-6 {
+                                            fill: url(#linear-gradient-4);
+                                        }
+
+                                        #habitos .cls-unique-7 {
+                                            fill: url(#linear-gradient-3);
+                                        }
+
+                                        #habitos .cls-unique-8 {
+                                            fill: url(#linear-gradient-2);
+                                        }
+
+                                        #habitos .cls-unique-9 {
+                                            fill: url(#linear-gradient);
+                                        }
+
+                                        #habitos .cls-unique-10 {
+                                            fill: none;
+                                            stroke: #272087;
+                                            stroke-linecap: round;
+                                            stroke-linejoin: round;
+                                            stroke-width: .75px;
+                                        }
+
+                                        #habitos .cls-unique-11 {
+                                            fill: url(#linear-gradient-10);
+                                        }
+
+                                        #habitos .cls-unique-12 {
+                                            fill: #f4f3f9;
+                                            fill-rule: evenodd;
+                                        }
+                                    </style>
+                                    <linearGradient id="linear-gradient" x1="23.07" y1="99.09" x2="23.07" y2="90.87"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#00aa78" />
+                                        <stop offset=".16" stop-color="#00b97a" />
+                                        <stop offset=".5" stop-color="#00d67f" />
+                                        <stop offset=".79" stop-color="#00e781" />
+                                        <stop offset="1" stop-color="#00ee83" />
+                                    </linearGradient>
+                                    <linearGradient id="linear-gradient-2" x1="46.79" y1="81.3" x2="46.79" y2="64.89"
+                                        xlink:href="#linear-gradient" />
+                                    <linearGradient id="linear-gradient-3" x1="46.79" y1="99.09" x2="46.79" y2="82.67"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#0079ff" />
+                                        <stop offset=".27" stop-color="#0098ff" />
+                                        <stop offset=".76" stop-color="#0cf" />
+                                        <stop offset="1" stop-color="#00e0ff" />
+                                    </linearGradient>
+                                    <linearGradient id="linear-gradient-4" x1="70.51" y1="71.72" x2="70.51" y2="55.31"
+                                        xlink:href="#linear-gradient" />
+                                    <linearGradient id="linear-gradient-5" x1="70.51" y1="89.51" x2="70.51" y2="73.09"
+                                        xlink:href="#linear-gradient-3" />
+                                    <linearGradient id="linear-gradient-6" x1="70.51" y1="99.09" x2="70.51" y2="90.87"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#f87315" />
+                                        <stop offset=".66" stop-color="#fba407" />
+                                        <stop offset="1" stop-color="#fdb802" />
+                                    </linearGradient>
+                                    <linearGradient id="linear-gradient-7" x1="94.23" y1="45.73" x2="94.23" y2="29.31"
+                                        xlink:href="#linear-gradient" />
+                                    <linearGradient id="linear-gradient-8" x1="94.23" y1="63.51" x2="94.23" y2="47.1"
+                                        xlink:href="#linear-gradient-3" />
+                                    <linearGradient id="linear-gradient-9" x1="94.23" y1="81.3" x2="94.23" y2="64.89"
+                                        xlink:href="#linear-gradient-6" />
+                                    <linearGradient id="linear-gradient-10" x1="94.23" y1="99.09" x2="94.23" y2="82.67"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#7a00ff" />
+                                        <stop offset=".28" stop-color="#8d00ff" />
+                                        <stop offset=".85" stop-color="#c100ff" />
+                                        <stop offset="1" stop-color="#d000ff" />
+                                    </linearGradient>
+                                </defs>
+                                <g id="Layer_1-2" data-name="Layer_1">
+                                    <g>
+                                        <g>
+                                            <path class="cls-unique-12"
+                                                d="M2.98,23.92c3.55,4.31,10.28,5.27,14.28,1.38l6.43-6.25c4-3.89,4.93-9.97,1.38-14.28l-.78-.95C20.75-.48,14.01-1.44,10.01,2.44l-6.43,6.25c-4,3.89-4.93,9.97-1.38,14.28l.78.95Z" />
+                                            <path class="cls-unique-12"
+                                                d="M4.58,68.74c3.95,3.95,10.44,3.99,14.35,0l49.23-50.28c3.9-3.99,3.95-10.4,0-14.35l-.87-.87c-3.94-3.95-10.44-3.99-14.35,0L3.71,53.53c-3.9,3.99-3.95,10.4,0,14.35l.87.87Z" />
+                                            <path class="cls-unique-12"
+                                                d="M114.23,4.39l-.87-.87c-3.95-3.95-10.42-3.97-14.35,0L3.85,99.74c-3.92,3.97-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.97,14.35,0L114.23,18.73c3.92-3.97,3.95-10.4,0-14.35Z" />
+                                            <path class="cls-unique-12"
+                                                d="M114.34,99.21l-25.63-25.45-.43-.43c-3.94-3.94-10.42-3.96-14.35,0l-25.45,25.63c-3.93,3.96-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.96,14.35,0l17.46-17.59,17.97,17.84c3.96,3.93,10.4,3.95,14.35,0l.87-.87c3.94-3.94,3.96-10.42,0-14.35Z" />
+                                        </g>
+                                        <g>
+                                            <path class="cls-unique-9"
+                                                d="M31.27,90.87v.02c0,4.53-3.67,8.2-8.2,8.2h0c-4.53,0-8.2-3.67-8.2-8.2v-.02h16.4Z" />
+                                            <rect class="cls-unique-10" x="12.83" y="15.69" width="20.49" height="86.17"
+                                                rx="10.25" ry="10.25" />
+                                            <rect class="cls-unique-8" x="38.59" y="64.89" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-7" x="38.59" y="82.67" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-10" x="36.54" y="15.69" width="20.49" height="86.17"
+                                                rx="10.25" ry="10.25" />
+                                            <rect class="cls-unique-6" x="62.31" y="55.31" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-3" x="62.31" y="73.09" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <path class="cls-unique-4"
+                                                d="M78.71,90.87v.02c0,4.53-3.67,8.2-8.2,8.2h0c-4.53,0-8.2-3.67-8.2-8.2v-.02h16.4Z" />
+                                            <rect class="cls-unique-10" x="60.26" y="15.69" width="20.49" height="86.17"
+                                                rx="10.25" ry="10.25" />
+                                            <rect class="cls-unique-2" x="86.03" y="29.31" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-1" x="86.03" y="47.1" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-5" x="86.03" y="64.89" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-11" x="86.03" y="82.67" width="16.4" height="16.42"
+                                                rx="8.2" ry="8.2" />
+                                            <rect class="cls-unique-10" x="83.98" y="15.69" width="20.49" height="86.17"
+                                                rx="10.25" ry="10.25" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+                            <p class="texto-subscores" id="life-1"> </p>
+
+                        </div>
+                        <div class="info-part subscore-item">
+                            <div class="circles">
+                                <div class="circle" id="circle4"></div>
+                                <div class="circle" id="circle5"></div>
+                                <div class="circle" id="circle6"></div>
+                            </div>
+
+                            <div class="titulo-subscores">
+                                <p>Emociones y percepciones</p>
+                            </div>
+
+                            <svg id="emociones" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.3 117.92"
+                                height="135" width="auto">
+                                <defs>
+                                    <style>
+                                        .emo-cls-1,
+                                        .emo-cls-2 {
+                                            fill: #fff;
+                                        }
+
+                                        .emo-cls-1,
+                                        .emo-cls-3 {
+                                            fill-rule: evenodd;
+                                        }
+
+                                        .emo-cls-4 {
+                                            stroke: #fff;
+                                        }
+
+                                        .emo-cls-4,
+                                        .emo-cls-5 {
+                                            fill: none;
+                                        }
+
+                                        .emo-cls-4,
+                                        .emo-cls-5,
+                                        .emo-cls-6 {
+                                            stroke-linecap: round;
+                                            stroke-linejoin: round;
+                                        }
+
+                                        .emo-cls-4,
+                                        .emo-cls-5,
+                                        .emo-cls-6,
+                                        .emo-cls-7,
+                                        .emo-cls-8 {
+                                            stroke-width: .75px;
+                                        }
+
+                                        .emo-cls-5 {
+                                            stroke: #272087;
+                                        }
+
+                                        .emo-cls-6 {
+                                            fill: url(#emo-linear-gradient);
+                                        }
+
+                                        .emo-cls-6,
+                                        .emo-cls-7,
+                                        .emo-cls-8 {
+                                            stroke: #272085;
+                                        }
+
+                                        .emo-cls-7 {
+                                            fill: #dc3730;
+                                        }
+
+                                        .emo-cls-7,
+                                        .emo-cls-8 {
+                                            stroke-miterlimit: 10;
+                                        }
+
+                                        .emo-cls-8 {
+                                            fill: #0fb980;
+                                        }
+
+                                        .emo-cls-3 {
+                                            fill: #f4f3f9;
+                                        }
+                                    </style>
+                                    <linearGradient id="emo-linear-gradient" x1="56.01" y1="117.96" x2="56.01" y2="6.98"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop offset="0" stop-color="#fc0000" />
+                                        <stop offset=".05" stop-color="#ee090d" />
+                                        <stop offset=".14" stop-color="#c92231" />
+                                        <stop offset=".27" stop-color="#8e4a6a" />
+                                        <stop offset=".42" stop-color="#3e82b9" />
+                                        <stop offset=".5" stop-color="#0fa3e8" />
+                                        <stop offset=".78" stop-color="#0faeaf" />
+                                        <stop offset="1" stop-color="#0fb980" />
+                                    </linearGradient>
+                                </defs>
+                                <g id="Layer_1-2" data-name="Layer_1">
+                                    <g>
+                                        <g>
+                                            <path class="emo-cls-3"
+                                                d="M2.98,23.92c3.55,4.31,10.28,5.27,14.28,1.38l6.43-6.25c4-3.89,4.93-9.97,1.38-14.28l-.78-.95C20.75-.48,14.01-1.44,10.01,2.44l-6.43,6.25c-4,3.89-4.93,9.97-1.38,14.28l.78.95Z" />
+                                            <path class="emo-cls-3"
+                                                d="M4.58,68.74c3.95,3.95,10.44,3.99,14.35,0l49.23-50.28c3.9-3.99,3.95-10.4,0-14.35l-.87-.87c-3.94-3.95-10.44-3.99-14.35,0L3.71,53.53c-3.9,3.99-3.95,10.4,0,14.35l.87.87Z" />
+                                            <path class="emo-cls-3"
+                                                d="M114.23,4.39l-.87-.87c-3.95-3.95-10.42-3.97-14.35,0L3.85,99.74c-3.92,3.97-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.97,14.35,0L114.23,18.73c3.92-3.97,3.95-10.4,0-14.35Z" />
+                                            <path class="emo-cls-3"
+                                                d="M114.34,99.21l-25.63-25.45-.43-.43c-3.94-3.94-10.42-3.96-14.35,0l-25.45,25.63c-3.93,3.96-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.96,14.35,0l17.46-17.59,17.97,17.84c3.96,3.93,10.4,3.95,14.35,0l.87-.87c3.94-3.94,3.96-10.42,0-14.35Z" />
+                                        </g>
+                                        <g>
+                                            <g>
+                                                <path class="emo-cls-5"
+                                                    d="M56.03,56.4c2.84.71,5.67,1.43,8.48,2.18,3.95,1.05,7.6,2.39,10.96,4.03,3.36,1.64,6.05,3.84,8.06,6.61,2.02,2.77,3.02,6.42,3.02,10.96,0,3.86-1.05,7.48-3.15,10.83-2.1,3.36-5.38,6.07-9.83,8.12-4.45,2.06-10.16,3.09-17.13,3.09-.15,0-.29,0-.44,0" />
+                                                <path class="emo-cls-5"
+                                                    d="M81.65,23.37c-3.53-2.6-7.43-4.53-11.72-5.79-4.28-1.26-8.4-1.89-12.34-1.89-.53,0-1.06,0-1.57.02" />
+                                                <path class="emo-cls-5"
+                                                    d="M56.01,102.23c-6.22-.05-12.1-1.23-17.64-3.53-5.67-2.35-9.97-5.33-12.91-8.94" />
+                                                <path class="emo-cls-5"
+                                                    d="M56.02,15.71c-5.43.14-9.99,1.04-13.67,2.69-4.03,1.81-7.01,4.2-8.94,7.18-1.93,2.98-2.9,6.32-2.9,10.01,0,4.28,1.01,7.71,3.02,10.27,2.02,2.56,4.7,4.58,8.06,6.05,3.36,1.47,7.03,2.69,11.02,3.65,1.14.28,2.28.56,3.42.84" />
+                                            </g>
+                                            <g>
+                                                <circle class="emo-cls-8" cx="36.64" cy="21.99" r="6.3" />
+                                                <g>
+                                                    <path class="emo-cls-2"
+                                                        d="M34.39,21.47c.38-.08.63-.46.55-.84s-.46-.63-.84-.55-.63.46-.55.84.46.63.84.55Z" />
+                                                    <path class="emo-cls-2"
+                                                        d="M38.56,20.59c.38-.08.63-.46.55-.84s-.46-.63-.84-.55-.63.46-.55.84.46.63.84.55Z" />
+                                                    <path class="emo-cls-1"
+                                                        d="M34.14,23.04c.19-.17.49-.16.67.04.28.31.63.54,1.03.67.4.13.82.15,1.22.07s.78-.28,1.09-.55c.31-.28.54-.63.67-1.03.08-.25.35-.38.6-.3.25.08.38.35.3.6-.18.55-.51,1.05-.94,1.43-.43.39-.96.65-1.53.77s-1.16.09-1.71-.09c-.55-.18-1.05-.5-1.44-.93-.17-.19-.16-.49.04-.67Z" />
+                                                </g>
+                                            </g>
+                                            <g>
+                                                <circle class="emo-cls-7" cx="85.53" cy="86.42" r="6.3" />
+                                                <g>
+                                                    <path class="emo-cls-2"
+                                                        d="M83.72,84.84c.39.07.76-.18.83-.57s-.18-.76-.57-.83-.76.18-.83.57.18.76.57.83Z" />
+                                                    <path class="emo-cls-2"
+                                                        d="M87.91,85.62c.39.07.76-.18.83-.57s-.18-.76-.57-.83-.76.18-.83.57.18.76.57.83Z" />
+                                                    <path class="emo-cls-1"
+                                                        d="M87.79,89.38c-.25.09-.52-.04-.6-.29-.14-.39-.38-.74-.7-1.01-.32-.27-.7-.45-1.11-.53s-.83-.04-1.22.09c-.39.14-.74.38-1.01.69-.17.2-.47.22-.67.05-.2-.17-.22-.47-.05-.67.38-.44.87-.77,1.42-.97.55-.19,1.14-.24,1.71-.13s1.11.36,1.55.74c.44.38.78.86.97,1.41.09.25-.04.52-.29.6Z" />
+                                                </g>
+                                            </g>
+                                            <rect class="emo-cls-6" x="51.33" y="6.98" width="9.37" height="103.95"
+                                                rx="4.68" ry="4.68" />
+                                            <line class="emo-cls-4" x1="56.01" y1="10.89" x2="56.01" y2="107.03" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+                            <p class="texto-subscores" id="psyco-1"> </p>
+
+                        </div>
+
+                        <div class="info-part subscore-item">
+                            <div class="circles">
+                                <div class="circle" id="circle7"></div>
+                                <div class="circle" id="circle8"></div>
+                                <div class="circle" id="circle9"></div>
+                            </div>
+
+                            <div class="titulo-subscores">
+                                <p>Realidad financiera</p>
+                            </div>
+
+                            <svg id="realidad" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.3 117.92"
+                                width="auto" height="135">
+                                <defs>
+                                    <style>
+                                        #realidad .cls-1,
+                                        #realidad .cls-2 {
+                                            fill: none;
+                                        }
+
+                                        #realidad .cls-3 {
+                                            fill: #f87315;
+                                        }
+
+                                        #realidad .cls-3,
+                                        #realidad .cls-4,
+                                        #realidad .cls-5,
+                                        #realidad .cls-6,
+                                        #realidad .cls-7,
+                                        #realidad .cls-8 {
+                                            stroke: #272085;
+                                            stroke-miterlimit: 10;
+                                        }
+
+                                        #realidad .cls-3,
+                                        #realidad .cls-4,
+                                        #realidad .cls-5,
+                                        #realidad .cls-6,
+                                        #realidad .cls-8 {
+                                            stroke-width: .47px;
+                                        }
+
+                                        #realidad .cls-4 {
+                                            fill: #fdb802;
+                                        }
+
+                                        #realidad .cls-5 {
+                                            fill: #db00ff;
+                                        }
+
+                                        #realidad .cls-6 {
+                                            fill: #0fa3e8;
+                                        }
+
+                                        #realidad .cls-9 {
+                                            clip-path: url(#realidad-clippath-1);
+                                        }
+
+                                        #realidad .cls-10 {
+                                            clip-path: url(#realidad-clippath-2);
+                                        }
+
+                                        #realidad .cls-2 {
+                                            stroke: #272087;
+                                            stroke-linecap: round;
+                                            stroke-linejoin: round;
+                                            stroke-width: .75px;
+                                        }
+
+                                        #realidad .cls-7 {
+                                            fill: #dc3730;
+                                            stroke-width: .47px;
+                                        }
+
+                                        #realidad .cls-8 {
+                                            fill: #0fb980;
+                                        }
+
+                                        #realidad .cls-11 {
+                                            fill: #f4f3f9;
+                                            fill-rule: evenodd;
+                                        }
+
+                                        #realidad .cls-12 {
+                                            clip-path: url(#realidad-clippath);
+                                        }
+                                    </style>
+                                    <clipPath id="realidad-clippath">
+                                        <polygon class="cls-1"
+                                            points="25.1 39.45 44.97 66.66 58.65 92.61 64.31 62.02 79.89 46.56 58.65 29.52 25.1 39.45" />
+                                    </clipPath>
+                                    <clipPath id="realidad-clippath-1">
+                                        <rect class="cls-1" x="20.1" y="24.52" width="64.79" height="73.09" />
+                                    </clipPath>
+                                    <clipPath id="realidad-clippath-2">
+                                        <rect class="cls-1" x="20.1" y="24.52" width="64.79" height="73.09" />
+                                    </clipPath>
+                                </defs>
+                                <g id="realidad-layer_1" data-name="Layer_1">
+                                    <g>
+                                        <g>
+                                            <path class="cls-11"
+                                                d="M2.98,23.92c3.55,4.31,10.28,5.27,14.28,1.38l6.43-6.25c4-3.89,4.93-9.97,1.38-14.28l-.78-.95C20.75-.48,14.01-1.44,10.01,2.44l-6.43,6.25c-4,3.89-4.93,9.97-1.38,14.28l.78.95Z" />
+                                            <path class="cls-11"
+                                                d="M4.58,68.74c3.95,3.95,10.44,3.99,14.35,0l49.23-50.28c3.9-3.99,3.95-10.4,0-14.35l-.87-.87c-3.94-3.95-10.44-3.99-14.35,0L3.71,53.53c-3.9,3.99-3.95,10.4,0,14.35l.87.87Z" />
+                                            <path class="cls-11"
+                                                d="M114.23,4.39l-.87-.87c-3.95-3.95-10.42-3.97-14.35,0L3.85,99.74c-3.92,3.97-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.97,14.35,0L114.23,18.73c3.92-3.97,3.95-10.4,0-14.35Z" />
+                                            <path class="cls-11"
+                                                d="M114.34,99.21l-25.63-25.45-.43-.43c-3.94-3.94-10.42-3.96-14.35,0l-25.45,25.63c-3.93,3.96-3.95,10.4,0,14.35l.87.87c3.95,3.95,10.42,3.96,14.35,0l17.46-17.59,17.97,17.84c3.96,3.93,10.4,3.95,14.35,0l.87-.87c3.94-3.94,3.96-10.42,0-14.35Z" />
+                                        </g>
+                                        <g>
+                                            <g class="cls-12">
+                                                <g class="cls-9">
+                                                    <g class="cls-10">
+                                                        <image width="136" height="153"
+                                                            transform="translate(19.77 24.37) scale(.48)"
+                                                            xlink:href="data:image/png;base64,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" />
+                                                    </g>
+                                                </g>
+                                            </g>
+                                            <polyline class="cls-2" points="58.65 20.08 58.65 58.82 92.2 39.45" />
+                                            <polyline class="cls-2" points="92.2 78.19 58.65 58.82 58.65 97.56" />
+                                            <g>
+                                                <polyline class="cls-2" points="25.1 78.19 58.65 58.82 25.1 39.45" />
+                                                <circle class="cls-2" cx="17.37" cy="82.34" r="4.32" />
+                                                <circle class="cls-2" cx="99.93" cy="35.3" r="4.32" />
+                                                <circle class="cls-2" cx="17.56" cy="34.96" r="4.32" />
+                                                <circle class="cls-2" cx="99.74" cy="82.68" r="4.32" />
+                                                <circle class="cls-2" cx="58.65" cy="11.3" r="4.32" />
+                                                <circle class="cls-2" cx="58.65" cy="106.33" r="4.32" />
+                                            </g>
+                                            <circle class="cls-6" cx="58.65" cy="29.52" r="2.04" />
+                                            <circle class="cls-5" cx="25.1" cy="39.45" r="2.04" />
+                                            <circle class="cls-7" cx="44.97" cy="66.66" r="2.04" />
+                                            <circle class="cls-3" cx="64.49" cy="62.15" r="2.04" />
+                                            <circle class="cls-4" cx="58.65" cy="92.61" r="2.04" />
+                                            <circle class="cls-8" cx="79.89" cy="46.56" r="2.04" />
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+
+
+
+
+
+
+                            <p class="texto-subscores" id="money-1"> </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-1">
+                    <p class="footer-text">¿Quieres empezar tu nuevo futuro financiero? Ingresa a <a
+                            href="https://www.kamina.app" class="kamina-link">www.kamina.app</a>
+                    </p>
+                    <p class="page-number">
+                        1 de 2
+                    </p>
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+        <div class="first_container">
+
+            <div class="part">
+
+                <div class="cos-container">
+
+                    <div class="background-color-visualization">
+
+
+                    </div>
+
+                    <div class="header">
+
+                        <a href="https://www.kamina.app/">
+
+                            <div class="icon">
+                                <svg id="logo_kami" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.39 23.76"
+                                    width="150px">
+                                    <defs>
+                                        <style>
+                                            .kami-cls-1 {
+                                                fill: url(#kami-Degradado_sin_nombre_16-3);
+                                            }
+
+                                            .kami-cls-1,
+                                            .kami-cls-2,
+                                            .kami-cls-3,
+                                            .kami-cls-4 {
+                                                fill-rule: evenodd;
+                                            }
+
+                                            .kami-cls-2 {
+                                                fill: url(#kami-Degradado_sin_nombre_16-2);
+                                            }
+
+                                            .kami-cls-3 {
+                                                fill: url(#kami-Degradado_sin_nombre_16-4);
+                                            }
+
+                                            .kami-cls-5 {
+                                                fill: #28208d;
+                                            }
+
+                                            .kami-cls-4 {
+                                                fill: url(#kami-Degradado_sin_nombre_16);
+                                            }
+                                        </style>
+                                        <linearGradient id="kami-Degradado_sin_nombre_16"
+                                            data-name="Degradado sin nombre 16" x1="1.54" y1=".71" x2="3.96" y2="4.89"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#c000b5" />
+                                            <stop offset=".23" stop-color="#bd00b4" />
+                                            <stop offset=".39" stop-color="#b302b1" />
+                                            <stop offset=".53" stop-color="#a405ad" />
+                                            <stop offset=".66" stop-color="#8e0aa7" />
+                                            <stop offset=".78" stop-color="#7110a0" />
+                                            <stop offset=".9" stop-color="#4e1797" />
+                                            <stop offset="1" stop-color="#28208d" />
+                                        </linearGradient>
+                                        <linearGradient id="kami-Degradado_sin_nombre_16-2"
+                                            data-name="Degradado sin nombre 16" x1="5.2" y1="3.72" x2="9.28" y2="10.78"
+                                            xlink:href="#kami-Degradado_sin_nombre_16" />
+                                        <linearGradient id="kami-Degradado_sin_nombre_16-3"
+                                            data-name="Degradado sin nombre 16" x1="9.02" y1="6.94" x2="14.78"
+                                            y2="16.93" xlink:href="#kami-Degradado_sin_nombre_16" />
+                                        <linearGradient id="kami-Degradado_sin_nombre_16-4"
+                                            data-name="Degradado sin nombre 16" x1="13.12" y1="15.72" x2="18.77"
+                                            y2="25.51" xlink:href="#kami-Degradado_sin_nombre_16" />
+                                    </defs>
+                                    <g id="Layer_1-2" data-name="Layer_1">
+                                        <g>
+                                            <path class="kami-cls-5"
+                                                d="M106.61,11.16c.61,0,1.14.11,1.6.33.46.21.84.5,1.14.86.3.36.53.77.69,1.22.15.45.23.91.23,1.39s-.08.94-.23,1.39c-.15.45-.38.85-.69,1.22-.3.36-.69.65-1.14.86-.46.21-.99.32-1.6.33-.52,0-1-.09-1.45-.26-.45-.17-.84-.42-1.18-.75-.34-.33-.6-.73-.79-1.2-.19-.47-.29-1.01-.29-1.6,0-.6.1-1.13.29-1.6.19-.47.45-.86.79-1.19.34-.32.73-.57,1.18-.74.45-.17.93-.25,1.45-.25M110.31,10.42c-.24-.42-.57-.78-.98-1.08-.41-.3-.87-.54-1.39-.7-.52-.17-1.06-.25-1.62-.25-.92,0-1.77.13-2.56.41-.79.27-1.48.69-2.07,1.24-.59.55-1.05,1.24-1.39,2.06-.33.82-.5,1.77-.5,2.85,0,1.1.16,2.06.49,2.89.32.83.77,1.53,1.35,2.09.58.56,1.26.98,2.04,1.26.78.28,1.64.41,2.57.41.36,0,.73-.05,1.13-.15.39-.09.78-.23,1.16-.41s.72-.41,1.04-.68c.31-.27.55-.6.74-.96l.15,1.83h2.92s0-12.51,0-12.51h-2.97s-.1,1.73-.1,1.73ZM97.83,21.21v-6.57c0-.99-.14-1.86-.41-2.62-.27-.76-.65-1.4-1.13-1.93-.48-.52-1.04-.92-1.68-1.19-.64-.27-1.33-.41-2.07-.41-.78,0-1.5.16-2.17.47-.66.31-1.32.78-1.94,1.4l-.2-1.7h-2.77s0,12.54,0,12.54h3.07s0-6.4,0-6.4c0-.48.08-.93.23-1.35.15-.42.37-.8.65-1.12.28-.32.62-.58,1.01-.76.39-.18.83-.27,1.3-.28.66,0,1.21.15,1.66.44.45.29.79.69,1.02,1.19.23.5.34,1.07.34,1.71v6.55s3.1,0,3.1,0ZM79.35,5.17c0,.4.1.74.27,1,.17.27.4.47.68.6.27.14.57.2.88.2s.6-.06.88-.2c.28-.14.5-.33.68-.6.17-.27.27-.6.27-1,0-.4-.1-.74-.27-1.01-.17-.27-.4-.47-.68-.6-.27-.14-.57-.2-.88-.2s-.6.07-.88.2c-.27.14-.5.33-.68.6-.17.27-.27.61-.27,1.01ZM82.72,8.65v12.56s-3.1,0-3.1,0v-12.56s3.1,0,3.1,0ZM68.31,21.21v-6.7c0-.41.06-.81.19-1.18.12-.37.3-.7.54-.99.23-.29.52-.52.85-.68.33-.16.71-.25,1.13-.25.42,0,.78.08,1.07.25.3.16.55.38.74.66.19.28.33.6.42.97.09.36.13.76.13,1.17v6.75s3.1,0,3.1,0v-6.75c0-1.26-.19-2.33-.58-3.21-.39-.88-.98-1.56-1.76-2.02-.79-.47-1.77-.7-2.96-.71-.54,0-1.06.06-1.56.2-.49.14-.96.37-1.4.7-.44.33-.85.8-1.22,1.38-.24-.57-.55-1.03-.94-1.37-.39-.35-.82-.59-1.29-.74-.47-.15-.96-.22-1.47-.22-.4,0-.82.05-1.24.17-.42.11-.81.3-1.18.55-.36.25-.66.59-.88,1.01l-.23-1.52h-2.87s0,12.54,0,12.54h3.1s0-6.7,0-6.7c0-.41.06-.81.18-1.19.12-.38.29-.71.52-1,.23-.3.51-.53.84-.7.33-.17.7-.25,1.12-.26.43,0,.8.09,1.12.26.32.17.59.4.8.7.22.29.38.63.48,1,.11.38.16.77.16,1.19v6.7s3.1,0,3.1,0ZM47.49,11.16c.61,0,1.14.11,1.6.33.46.21.84.5,1.14.86.3.36.53.77.69,1.22.15.45.23.91.23,1.39,0,.48-.08.94-.23,1.39-.15.45-.38.85-.69,1.22-.3.36-.69.65-1.14.86-.46.21-.99.32-1.6.33-.52,0-1-.09-1.45-.26-.45-.17-.84-.42-1.18-.75-.34-.33-.6-.73-.79-1.2-.19-.47-.29-1.01-.29-1.6,0-.6.1-1.13.29-1.6.19-.47.45-.86.79-1.19.34-.32.73-.57,1.18-.74.45-.17.93-.25,1.45-.25ZM51.2,10.42c-.24-.42-.57-.78-.98-1.08-.41-.3-.87-.54-1.39-.7-.52-.17-1.06-.25-1.62-.25-.92,0-1.77.13-2.56.41-.79.27-1.48.69-2.07,1.24-.59.55-1.05,1.24-1.39,2.06-.33.82-.5,1.77-.5,2.85,0,1.1.16,2.06.49,2.89.32.83.77,1.53,1.35,2.09.58.56,1.26.98,2.04,1.26.78.28,1.64.41,2.57.41.36,0,.73-.05,1.13-.15.39-.09.78-.23,1.16-.41.38-.18.72-.41,1.04-.68.31-.27.55-.6.74-.96l.15,1.83h2.92s0-12.51,0-12.51h-2.97s-.1,1.73-.1,1.73ZM28.23,3.47v17.74s3.1,0,3.1,0v-5.66s4.9,5.66,4.9,5.66h3.73v-.23s-5.81-6.4-5.81-6.4l5.1-5.71v-.18h-3.71s-4.21,5.03-4.21,5.03V3.47s-3.1,0-3.1,0Z" />
+                                            <g>
+                                                <path class="kami-cls-4"
+                                                    d="M.6,4.82c.71.87,2.07,1.06,2.88.28l1.3-1.26c.81-.78.99-2.01.28-2.88l-.16-.19C4.18-.1,2.82-.29,2.02.49L.72,1.75C-.08,2.54-.27,3.76.44,4.63l.16.19Z" />
+                                                <path class="kami-cls-2"
+                                                    d="M.92,13.85c.8.8,2.1.8,2.89,0L13.74,3.72c.79-.8.8-2.1,0-2.89l-.17-.17c-.8-.8-2.1-.8-2.89,0L.75,10.79c-.79.8-.8,2.1,0,2.89l.17.17Z" />
+                                                <path class="kami-cls-1"
+                                                    d="M23.02.88l-.17-.17c-.8-.8-2.1-.8-2.89,0L.78,20.1c-.79.8-.8,2.1,0,2.89l.17.17c.8.8,2.1.8,2.89,0L23.02,3.78c.79-.8.8-2.1,0-2.89Z" />
+                                                <path class="kami-cls-3"
+                                                    d="M23.04,19.99l-5.16-5.13-.09-.09c-.79-.79-2.1-.8-2.89,0l-5.13,5.16c-.79.8-.8,2.1,0,2.89l.17.17c.8.8,2.1.8,2.89,0l3.52-3.54,3.62,3.6c.8.79,2.1.8,2.89,0l.17-.17c.79-.79.8-2.1,0-2.89Z" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+
+                        </a>
+
+                        <div class="nombre-section2">
+                            <p>
+                            <p id="nombre2"></p>
+                            <br />
+                            <p>CI: <span id="cedula2"></span></p>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+
+
+                        <div class="score-visualization-container" id="squareContainer">
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="items-2">
+                    <div class="info-container">
+                        <div class="part">
+                            <div class="info-grande2">
+                                <div class="circles">
+                                    <div class="circle2" id="circle2-1"></div>
+                                    <div class="circle2" id="circle2-2"></div>
+                                    <div class="circle2" id="circle2-3"></div>
+                                </div>
+                                <div class="titulo-subscores2">
+                                    <p>Destrezas y hábitos</p>
+                                </div>
+                                <p class="texto-subscores2" id="life2-1"> </p>
+                            </div>
+
+                        </div>
+                        <div class="part">
+                            <div class="info-grande2">
+                                <div class="circles">
+                                    <div class="circle2" id="circle2-4"></div>
+                                    <div class="circle2" id="circle2-5"></div>
+                                    <div class="circle2" id="circle2-6"></div>
+                                </div>
+                                <div class="titulo-subscores2">
+                                    <p>Emociones y percepciones</p>
+                                </div>
+                                <p class="texto-subscores2" id="psyco2-1"> </p>
+                            </div>
+
+                        </div>
+                        <div class="part">
+                            <div class="info-grande2">
+                                <div class="circles">
+                                    <div class="circle2" id="circle2-7"></div>
+                                    <div class="circle2" id="circle2-8"></div>
+                                    <div class="circle2" id="circle2-9"></div>
+                                </div>
+                                <div class="titulo-subscores2">
+                                    <p>Realidad financiera</p>
+                                </div>
+                                <p class="texto-subscores2" id="money2-1"> </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="part">
+                <div class="footer-2">
+                    <div class="footer-2-inside">
+                        <p class="footer-text">¿Quieres empezar tu nuevo futuro financiero? Ingresa a <a
+                                href="https://www.kamina.app" class="kamina-link">www.kamina.app</a>
+                        </p>
+                        <p class="page-number-2">
+                            2 de 2
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="div-segundo">
+                    <div class="background-icon">
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+    </div>
+
+
+    <script>
+
+        window.squaresDrawn = false;
+
+    
+
+        const score = "{{score}}";
+        const subscore_money = "{{subscore_money}}";
+        const subscore_psycho = "{{subscore_psycho}}";
+        const subscore_life = "{{subscore_life}}";
+        const nombre = "{{nombre}}";
+        const cedula = "{{cedula}}";
+        const financial_status = "{{financial_status}}";
+
+        document.getElementById('score').textContent = score;
+        document.getElementById('nombre').textContent = nombre;
+        document.getElementById('cedula').textContent = cedula;
+        document.getElementById('nombre2').textContent = nombre;
+        document.getElementById('cedula2').textContent = cedula;
+
+
+        /* Utils */
+
+
+        function getScoreStatus(score) {
+            if (score < 50) {
+                return 'critico';
+            } else if (score >= 50 && score <= 75) {
+                return 'en riesgo';
+            } else {
+                return 'excelente';
+            }
+        }
+
+        function getColor(string) {
+            if (string == "critico") {
+                return "red"
+            }
+            else if (string == "en riesgo") {
+                return "#ffc300"
+            }
+            else if (string == "excelente") {
+                return "#01c287"
+            }
+        }
+
+
+        function getScoreStatus2(score) {
+            if (score < 50) {
+                return 'critico';
+            } else if (score >= 50 && score <= 75) {
+                return 'en riesgo';
+            } else {
+                return 'excelente';
+            }
+        }
+
+        const estadoContainer = document.getElementById('estadoContainer');
+        const estado = document.getElementById('estado');
+        const lineLeft = document.getElementById('line-left');
+        const lineCenter = document.getElementById('line-center');
+        const lineRight = document.getElementById('line-right');
+
+
+        // Generar los cuadrados según el score
+        const gridContainer = document.getElementById('grid-container');
+        for (let i = 0; i < 100; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+
+            if (i < score) {
+                square.classList.add('active');
+
+                // Modificar la fórmula para hacer que el amarillo ocupe más espacio
+                const percentage = i / 100; // Proporción del índice
+
+                // Aplicar la lógica de degradado, pero haciendo que el amarillo dure más
+                let red, green;
+
+                if (percentage < 0.7) {
+                    // De rojo (255,0,0) a amarillo (255,255,0) más lentamente
+                    red = 255; // Mantener rojo en 255
+                    green = Math.floor(percentage / 0.7 * 255); // Aumenta el verde más despacio hasta 255
+                } else {
+                    // De amarillo (255,255,0) a verde (0,255,0)
+                    red = Math.floor(255 - ((percentage - 0.7) / 0.3 * 255)); // Decrece el rojo hasta 0
+                    green = 255; // Mantener verde en 255
+                }
+
+                square.style.backgroundColor = `rgb(${red}, ${green}, 0)`; // Color RGB
+            }
+
+            else {
+                square.style.boxShadow = 'inset 0 0 0 1px #a2a1ad';
+            }
+            gridContainer.appendChild(square);
+
+
+        }
+
+        const flechasEstado = document.querySelector('.flechas-estado');
+
+        if (score < 50) {
+            estadoContainer.style.left = "0%"; // Alineado en el primer tercio (izquierda)
+            estado.textContent = "Crítico";
+            estado.style.color = "red";
+            lineLeft.style.display = "none";
+            flechasEstado.innerHTML = `<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372.38 41.66">
+                            <defs>
+                                <style>
+                                    .cls-1-critico,
+                                    .cls-2-critico {
+                                        fill: none;
+                                        stroke: #fff;
+                                        stroke-linecap: round;
+                                        stroke-linejoin: round;
+                                        stroke-width: .75px;
+                                    }
+
+                                    .cls-2-critico {
+                                        fill-rule: evenodd;
+                                    }
+
+                                    /* Nueva clase para color */
+                                    .critico .cls-1-critico,
+                                    .critico .cls-2-critico {
+                                        stroke: #f2f3f4;
+                                    }
+                                </style>
+                            </defs>
+                            <g id="Layer_1-2" data-name="Layer_1" class="critico">
+                                <g>
+                                    <path class="cls-2-critico"
+                                        d="M.38,13.35v6.67c0,3.91,3.17,7.09,7.09,7.09h171.51c3.91,0,7.09,3.17,7.09,7.09v7.09" />
+                                    <path class="cls-2-critico"
+                                        d="M.38.38v5.89c0,3.91,3.17,7.09,7.09,7.09h350.37c7.83,0,14.17,6.35,14.17,14.17v13.75" />
+                                    <line class="cls-1-critico" x1=".38" y1=".38" x2=".38" y2="41.28" />
+                                </g>
+                            </g>
+                        </svg>`;
+
+
+            // Elimina la línea del primer tercio
+        } else if (score >= 50 && score < 75) {
+            estadoContainer.style.left = "33.3%"; // Alineado en el segundo tercio (centro)
+            estado.textContent = "En riesgo";
+            lineCenter.style.display = "none"; // Elimina la línea del segundo tercio
+            estado.style.color = "#ffc300";
+
+            flechasEstado.innerHTML = `<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372.08 41.66">
+                            <defs>
+                                <style>
+                                .cls-1-riesgo, .cls-2-riesgo {
+                                    fill: none;
+                                    stroke: #fff;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: .75px;
+                                }
+
+                                .cls-2-riesgo {
+                                    fill-rule: evenodd;
+                                }
+                                </style>
+
+                                 /* Nueva clase para color */
+                                    .critico .cls-1-riesgo,
+                                    .critico .cls-2-riesgo {
+                                        stroke: #f2f3f4;
+                                    }
+
+                            </defs>
+                            <g id="Layer_1-2" data-name="Layer_1">
+                                <g>
+                                <path class="cls-2-riesgo" d="M186.02,4.84v6.67c0,3.91,3.17,7.09,7.09,7.09h171.51c3.91,0,7.09,3.17,7.09,7.09v15.09"/>
+                                <path class="cls-2-riesgo" d="M186.05,5.35v6.67c0,3.91-3.17,7.09-7.09,7.09H7.46c-3.91,0-7.09,3.17-7.09,7.09v15.09"/>
+                                <line class="cls-1-riesgo" x1="186.05" y1=".38" x2="186.05" y2="41.28"/>
+                                </g>
+                            </g>
+                            </svg>`;
+        } else if (score >= 75) {
+            estadoContainer.style.left = "66.6%"; // Alineado en el tercer tercio (derecha)
+            estado.textContent = "Excelente";
+            estado.style.color = "#01c287";
+            lineRight.style.display = "none"; // Elimina la línea del tercer tercio
+
+            flechasEstado.innerHTML = `<?xml version="1.0" encoding="UTF-8"?>
+                            <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372.38 41.66">
+                            <defs>
+                                <style>
+                                .cls-1-excelente, .cls-2-excelente {
+                                    fill: none;
+                                    stroke: #fff;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-width: .75px;
+                                }
+
+                                .cls-2-excelente {
+                                    fill-rule: evenodd;
+                                }
+                                     /* Nueva clase para color */
+                                    .critico .cls-1-excelente,
+                                    .critico .cls-2-excelente {
+                                        stroke: #f2f3f4;
+                                    }
+
+                                </style>
+                            </defs>
+                            <g id="Layer_1-2" data-name="Layer_1">
+                                <g>
+                                <path class="cls-2-excelente" d="M372,13.35v6.67c0,3.91-3.17,7.09-7.09,7.09h-171.51c-3.91,0-7.09,3.17-7.09,7.09v7.09"/>
+                                <path class="cls-2-excelente" d="M372,.38v5.89c0,3.91-3.17,7.09-7.09,7.09H14.55C6.72,13.35.38,19.7.38,27.53v13.75"/>
+                                <line class="cls-1-excelente" x1="372" y1=".38" x2="372" y2="41.28"/>
+                                </g>
+                            </g>
+                            </svg>`;
+        }
+
+
+
+
+        function getCombinationText(moneyScore, lifeScore, psychologyScore) {
+            // Determinar el estado para cada score
+            const moneyStatus = getScoreStatus2(moneyScore);
+            const lifeStatus = getScoreStatus2(lifeScore);
+            const psychologyStatus = getScoreStatus2(psychologyScore);
+
+            general = ""
+            accion = "";
+
+
+            if (moneyStatus === 'critico' && lifeStatus === 'critico' && psychologyStatus === 'critico') {
+                general = "Tu salud financiera está en una situación crítica. Estás luchando para llegar a fin de mes y te sientes abrumado por tus deudas. Tus hábitos financieros y tus percepciones emocionales frente al dinero necesitan urgentemente atención.";
+                accion = "Necesitas tomar acciones inmediatas: crea un presupuesto, busca renegociar tus deudas y encuentra formas de aumentar tus ingresos. Aprende sobre finanzas personales para ganar confianza y establece metas alcanzables.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'critico' && psychologyStatus === 'riesgo') {
+                general = "Tu salud financiera está en alerta. Aunque tus percepciones emocionales frente al dinero no son las peores, sigues luchando con los gastos diarios y tus hábitos financieros necesitan cuidado.";
+                accion = "Prioriza el establecimiento de un presupuesto y la renegociación de deudas. Pequeños objetivos alcanzables te ayudarán a sentir progreso y a reducir el estrés financiero.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'critico' && psychologyStatus === 'excelente') {
+                general = "Aunque tus percepciones emocionales frente al dinero son positivas, tu realidad financiera y tus hábitos financieros están en un estado crítico.";
+                accion = "Aprovecha tu buena relación emocional con el dinero para establecer metas claras y realistas. Enfócate en aprender más sobre finanzas personales y en gestionar tus deudas de manera efectiva.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'en riesgo' && psychologyStatus === 'critico') {
+                general = "Tu realidad financiera está en una situación crítica y tus hábitos financieros están en riesgo. Además, tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Necesitas un plan integral que incluya la creación de un presupuesto, renegociación de deudas y el establecimiento de metas financieras alcanzables. Técnicas de manejo del estrés pueden ser útiles para mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'en riesgo' && psychologyStatus === 'en riesgo') {
+                general = "Tu salud financiera está en riesgo en general. Luchas para llegar a fin de mes, tus hábitos financieros necesitan atención y tus emociones frente al dinero también.";
+                accion = "Crea un plan de acción enfocado en la planificación financiera y en establecer metas alcanzables. Habla con tu círculo cercano sobre finanzas para reducir la presión emocional.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'en riesgo' && psychologyStatus === 'excelente') {
+                general = "Aunque tus percepciones emocionales frente al dinero son positivas, tu realidad financiera y tus hábitos financieros necesitan atención.";
+                accion = "Utiliza tu buena relación emocional con el dinero para establecer un presupuesto sólido y metas financieras claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'excelente' && psychologyStatus === 'critico') {
+                general = "Tus hábitos financieros son sanos, pero tu realidad financiera está en alerta y tus emociones frente al dinero necesitan atención.";
+                accion = "Enfócate en mejorar tu realidad financiera creando un presupuesto y renegociando deudas. Técnicas de manejo del estrés y pequeños objetivos alcanzables te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'excelente' && psychologyStatus === 'en riesgo') {
+                general = "Aunque tus hábitos financieros son sanos, tu realidad financiera está en alerta y tus percepciones emocionales frente al dinero necesitan cuidado.";
+                accion = "Crea un presupuesto y establece metas financieras claras. Habla sobre tus finanzas con personas cercanas para reducir la presión emocional y fortalecer tu planificación financiera.";
+            } else if (moneyStatus === 'critico' && lifeStatus === 'excelente' && psychologyStatus === 'excelente') {
+                general = "Tus hábitos financieros y tus percepciones emocionales frente al dinero son positivos, pero tu realidad financiera está en una situación crítica.";
+                accion = "Utiliza tu buena relación emocional con el dinero y tus hábitos financieros saludables para establecer un presupuesto y metas claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'critico' && psychologyStatus === 'critico') {
+                general = "Aunque no estás en crisis, tu realidad financiera necesita cuidado. Tus hábitos financieros están en alerta y tus emociones frente al dinero también.";
+                accion = "Establece un presupuesto, revisa y renegocia tus deudas. Técnicas de manejo del estrés y pequeños objetivos alcanzables te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'critico' && psychologyStatus === 'en riesgo') {
+                general = "Tu realidad financiera y tus hábitos financieros necesitan cuidado, y tus emociones frente al dinero también.";
+                accion = "Crea un plan de acción enfocado en la planificación financiera y en establecer metas alcanzables. Habla con tu círculo cercano sobre finanzas para reducir la presión emocional.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'critico' && psychologyStatus === 'excelente') {
+                general = "Aunque tus percepciones emocionales frente al dinero son positivas, tu realidad financiera y tus hábitos financieros necesitan atención.";
+                accion = "Utiliza tu buena relación emocional con el dinero para establecer un presupuesto sólido y metas financieras claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'en riesgo' && psychologyStatus === 'critico') {
+                general = "Tu realidad financiera y tus hábitos financieros necesitan cuidado. Además, tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Prioriza la planificación financiera, establece un ahorro de emergencia y revisa tus deudas. Técnicas de manejo del estrés y pequeños objetivos alcanzables te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'en riesgo' && psychologyStatus === 'en riesgo') {
+                general = "Tu salud financiera en general necesita cuidado. Tus ingresos son suficientes pero manejas tus finanzas con dificultad, y tus emociones frente al dinero también requieren atención.";
+                accion = "Crea un plan de acción enfocado en la planificación financiera y en establecer metas alcanzables. Habla con tu círculo cercano sobre finanzas para reducir la presión emocional.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'en riesgo' && psychologyStatus === 'excelente') {
+                general = "Aunque tus percepciones emocionales frente al dinero son positivas, tu realidad financiera y tus hábitos financieros necesitan cuidado.";
+                accion = "Utiliza tu buena relación emocional con el dinero para establecer un presupuesto sólido y metas financieras claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'excelente' && psychologyStatus === 'critico') {
+                general = "Tus hábitos financieros son sanos, pero tu realidad financiera necesita cuidado y tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Establece un presupuesto, revisa y renegocia tus deudas. Técnicas de manejo del estrés y pequeños objetivos alcanzables te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'excelente' && psychologyStatus === 'en riesgo') {
+                general = "Aunque tus hábitos financieros son sanos, tu realidad financiera y tus percepciones emocionales frente al dinero necesitan cuidado.";
+                accion = "Crea un presupuesto y establece metas financieras claras. Habla sobre tus finanzas con personas cercanas para reducir la presión emocional y fortalecer tu planificación financiera.";
+            } else if (moneyStatus === 'en riesgo' && lifeStatus === 'excelente' && psychologyStatus === 'excelente') {
+                general = "Tus hábitos financieros y tus percepciones emocionales frente al dinero son positivas, pero tu realidad financiera necesita cuidado.";
+                accion = "Utiliza tu buena relación emocional con el dinero y tus hábitos financieros saludables para establecer un presupuesto y metas claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'critico' && psychologyStatus === 'critico') {
+                general = "Aunque tu realidad financiera es saludable, tus hábitos financieros y tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Establece metas realistas y alcanzables, y busca aprender más sobre finanzas personales. Técnicas de manejo del estrés te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'critico' && psychologyStatus === 'en riesgo') {
+                general = "Aunque tu realidad financiera es saludable, tus hábitos financieros necesitan cuidado y tus emociones frente al dinero también.";
+                accion = "Establece un presupuesto sólido y metas claras. Habla sobre tus finanzas con personas cercanas para reducir la presión emocional y fortalecer tus hábitos financieros.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'critico' && psychologyStatus === 'excelente') {
+                general = "Aunque tus percepciones emocionales frente al dinero son positivas y tu realidad financiera es saludable, tus hábitos financieros necesitan atención.";
+                accion = "Aprovecha tu buena relación emocional con el dinero para establecer metas financieras claras y realistas. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'en riesgo' && psychologyStatus === 'critico') {
+                general = "Tus hábitos financieros son saludables, pero tu realidad financiera necesita atención y tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Establece un presupuesto y revisa tus gastos. Técnicas de manejo del estrés y pequeñas metas alcanzables te ayudarán a mejorar tu salud financiera y emocional.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'en riesgo' && psychologyStatus === 'en riesgo') {
+                general = "Aunque tus hábitos financieros y percepciones emocionales frente al dinero son positivas, tu realidad financiera necesita atención.";
+                accion = "Crea un plan de acción enfocado en la planificación financiera y en establecer metas alcanzables. Habla con tu círculo cercano sobre finanzas para reducir la presión emocional.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'en riesgo' && psychologyStatus === 'excelente') {
+                general = "Tus hábitos financieros y percepciones emocionales frente al dinero son positivos, pero tu realidad financiera necesita atención.";
+                accion = "Utiliza tus buenos hábitos y percepciones emocionales para establecer un presupuesto y metas financieras claras. Aprende sobre gestión de deudas y planificación a largo plazo.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'excelente' && psychologyStatus === 'critico') {
+                general = "Aunque tu realidad financiera y tus hábitos financieros son saludables, tus percepciones emocionales frente al dinero están en alerta.";
+                accion = "Establece metas realistas y alcanzables, y busca aprender más sobre finanzas personales. Técnicas de manejo del estrés te ayudarán a mejorar tus percepciones emocionales.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'excelente' && psychologyStatus === 'en riesgo') {
+                general = "Aunque tus hábitos financieros y percepciones emocionales frente al dinero son positivas, tu realidad financiera necesita atención.";
+                accion = "Crea un plan de acción enfocado en la planificación financiera y en establecer metas alcanzables. Habla con tu círculo cercano sobre finanzas para reducir la presión emocional.";
+            } else if (moneyStatus === 'excelente' && lifeStatus === 'excelente' && psychologyStatus === 'excelente') {
+                general = "Tu salud financiera, tus hábitos y tus percepciones emocionales frente al dinero están en una buena posición. Mantén el buen trabajo y sigue buscando formas de mejorar y proteger tu situación financiera.";
+                accion = "Continúa con tus prácticas saludables y busca oportunidades para educarte más sobre finanzas personales. Establece metas a largo plazo para asegurar tu estabilidad financiera futura.";
+            }
+
+            document.getElementById('subscore-general').textContent = general;
+            document.getElementById('subscore-accionable').textContent = accion;
+        }
+
+        getCombinationText(subscore_money, subscore_life, subscore_money);
+
+
+        function loadFinancialStatus(status) {
+
+            recomendacion_1 = "";
+            recomendacion_2 = "";
+
+            console.log(status);
+
+            if (status === "FINANCIALLY_CONFIDENT") {
+                recomendacion_1 = "Manejas bien tus finanzas, tienes metas claras, control de gastos, y conciencia financiera.";
+                recomendacion_2 = "Mantén tu organización y sigue aprendiendo con Kamina.";
+            } else {
+                recomendacion_1 = "La planeación financiera te estresa, puedes sentirte influenciado y no sabes por dónde empezar.";
+                recomendacion_2 = "Organiza tus gastos y deudas con Kamina para reducir estrés.";
+            }
+
+            document.getElementById('financial-1').textContent = recomendacion_1;
+            document.getElementById('financial-2').textContent = recomendacion_2;
+
+
+        }
+
+        loadFinancialStatus(financial_status);
+
+
+        function loadMoney(score) {
+            statusInput = getScoreStatus2(score);
+
+            if (statusInput === 'critico') {
+                document.getElementById('circle1').style.backgroundColor = "red";
+                document.getElementById('money-1').textContent = "Tu realidad financiera está en alerta. Esto quiere decir que, probablemente, estás luchando para llegar a fin de mes. Los ingresos que tienes no son suficientes para cubrir todos tus gastos habituales y esto te preocupa. Además, es posible que tengas deudas acumuladas, haciéndote difícil ahorrar para pagar gastos inesperados.";
+
+                document.getElementById('circle2-1').style.backgroundColor = "red";
+                document.getElementById('money2-1').textContent = "Crea un presupuesto para encontrar gastos a eliminar y ahorrar para pagar deudas. Renegocia tus deudas y explora maneras de tener ingresos adicionales.\n\nEncuentra herramientas en Kamina para gestionar tus gastos y aclarar dudas.";
+
+
+            } else if (statusInput === 'en riesgo') {
+                document.getElementById('circle1').style.backgroundColor = "#ffc300";
+                document.getElementById('circle2').style.backgroundColor = "#ffc300";
+                document.getElementById('money-1').textContent = "Tu realidad financiera necesita cuidado. Tus ingresos son suficientes para cubrir tus gastos habituales, aunque a veces con dificultad. Tus deudas son manejables, pero hacen que no te quede dinero a fin de mes. Esto hace que, en ocasiones, te toque pedir prestado para gastos imprevistos. Aún no estás en crisis, pero debes tomar medidas preventivas.";
+
+                document.getElementById('circle2-1').style.backgroundColor = "#ffc300";
+                document.getElementById('circle2-2').style.backgroundColor = "#ffc300";
+                document.getElementById('money2-1').textContent = "Prioriza la planificación. Crea un ahorro de emergencias, revisa tus deudas y crea un plan de pagos. Revisa tus gastos para eliminar los innecesarios.\n\nEncuentra herramientas en Kamina.";
+
+
+            } else if (statusInput === 'excelente') {
+                document.getElementById('circle1').style.backgroundColor = "#01c287";
+                document.getElementById('circle2').style.backgroundColor = "#01c287";
+                document.getElementById('circle3').style.backgroundColor = "#01c287";
+                document.getElementById('money-1').textContent = "Tu realidad financiera está sana. Tus ingresos son suficientes para cubrir todos tus gastos y te sobra a fin de mes para ahorrar o invertir. Tienes una gestión sana de la deuda y puedes pagar gastos inesperados sin problemas, sin tener que pedir prestado.";
+
+
+                document.getElementById('circle2-1').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-2').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-3').style.backgroundColor = "#01c287";
+                document.getElementById('money2-1').textContent = "Fortalece tu realidad financiera. Edúcate sobre temas financieros y establece metas a largo plazo. Ajusta periódicamente tu presupuesto para optimizar los gastos.\n\nEncuentra herramientas en Kamina.";
+
+
+            } else {
+                alert("Por favor ingrese un valor válido: critico, en riesgo, excelente.");
+            }
+
+        };
+
+        function loadPsychology(score) {
+
+            statusInput = getScoreStatus2(score);
+
+            if (statusInput === 'critico') {
+                document.getElementById('circle4').style.backgroundColor = "red";
+                document.getElementById('psyco-1').textContent = "Tus emociones y percepciones frente al dinero están en alerta. Sientes insatisfacción y preocupación porque el dinero no dura. Te estresa planificar tus finanzas y sientes presión por mantener los gastos de quienes te rodean. Pensar en la jubilación te da ansiedad y no sabes cómo cambiar tus hábitos.";
+
+                document.getElementById('circle2-4').style.backgroundColor = "red";
+                document.getElementById('psyco2-1').textContent = "Establece pequeños objetivos alcanzables, ahorra cada semana y usa técnicas de manejo del estrés.\n\nEducarte sobre finanzas con Kamina te dará más confianza y control.";
+
+
+            } else if (statusInput === 'en riesgo') {
+                document.getElementById('circle4').style.backgroundColor = "#ffc300";
+                document.getElementById('circle5').style.backgroundColor = "#ffc300";
+                document.getElementById('psyco-1').textContent = "Tienes que cuidar tus emociones y percepciones frente al dinero. Si bien no sientes que las finanzas controlan tu vida, que el dinero no dure es un tema que te preocupa. La planificación financiera te estresa y sientes presión por mantener los gastos que tienen los demás. Pensar en la jubilación te genera algo de ansiedad y no sabes muy bien cómo cambiar tus hábitos.";
+
+                document.getElementById('circle2-4').style.backgroundColor = "#ffc300";
+                document.getElementById('circle2-5').style.backgroundColor = "#ffc300";
+                document.getElementById('psyco2-1').textContent = "Habla con tu círculo cercano sobre finanzas para aliviar la presión. Busca asesoramiento para planificar tu jubilación y reducir la ansiedad futura. Cambia gradualmente tus hábitos financieros.\n\nEncuentra herramientas en Kamina.";
+
+
+            } else if (statusInput === 'excelente') {
+                document.getElementById('circle4').style.backgroundColor = "#01c287";
+                document.getElementById('circle5').style.backgroundColor = "#01c287";
+                document.getElementById('circle6').style.backgroundColor = "#01c287";
+                document.getElementById('psyco-1').textContent = "Tienes una relación sana frente a las emociones y percepciones alrededor del dinero. La planificación financiera no es algo que te estresa y no sientes presión por tener los mismos gastos de los demás. Piensas en tu jubilación con seguridad y no tienes problemas al cambiar tus hábitos.";
+
+                document.getElementById('circle2-4').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-5').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-6').style.backgroundColor = "#01c287";
+                document.getElementById('psyco2-1').textContent = "Revisa y ajusta tu presupuesto para optimizar tus finanzas a largo plazo. Habla abiertamente con tu círculo cercano sobre finanzas.\n\nEdúcate con Kamina sobre diferentes temas de finanzas personales para tener más seguridad.";
+
+
+            } else {
+                alert("Por favor ingrese un valor válido: critico, en riesgo, excelente.");
+            }
+        };
+
+        function loadLife(score) {
+
+            statusInput = getScoreStatus2(score);
+
+            if (statusInput === 'critico') {
+                document.getElementById('circle7').style.backgroundColor = "red";
+                document.getElementById('life-1').textContent = "Tus hábitos financieros están en alerta. Sientes que nunca vas a alcanzar tus metas porque en el pasado has fallado en cumplirlas. Esto te genera frustración y desesperanza y te lleva a pensar que no hay una salida.";
+
+                document.getElementById('circle2-7').style.backgroundColor = "red";
+                document.getElementById('life2-1').textContent = "Cambia cómo manejas y percibes el dinero. Crea metas realistas y alcanzables. Aprender sobre conceptos financieros te dará mayor control.\n\nUsa Kamina.";
+
+
+            } else if (statusInput === 'en riesgo') {
+                document.getElementById('circle7').style.backgroundColor = "#ffc300";
+                document.getElementById('circle8').style.backgroundColor = "#ffc300";
+                document.getElementById('life-1').textContent = "Tus hábitos financieros necesitan cuidado. Si bien el dinero no te limita, sí restringe algunas cosas que quieres hacer en tu vida y sientes que es difícil alcanzar tus metas. Has logrado alcanzar algunas metas del pasado y otras no. Necesitas prestar atención a tus hábitos para tener tranquilidad.";
+
+                document.getElementById('circle2-7').style.backgroundColor = "#ffc300";
+                document.getElementById('circle2-8').style.backgroundColor = "#ffc300";
+                document.getElementById('life2-1').textContent = "Fortalece tu planificación y seguimiento de metas. Establece metas claras y realistas. Usa herramientas de planificación y seguimiento para mantener el control y ver tu progreso.\n\nEncuentra acompañamiento en Kamina.";
+
+
+            } else if (statusInput === 'excelente') {
+                document.getElementById('circle7').style.backgroundColor = "#01c287";
+                document.getElementById('circle8').style.backgroundColor = "#01c287";
+                document.getElementById('circle9').style.backgroundColor = "#01c287";
+                document.getElementById('life-1').textContent = "Tienes hábitos financieros sanos. Te sientes capaz de alcanzar tus metas y, aunque has tenido algunos desafíos, generalmente has podido cumplir con las metas que te has propuesto. Tienes una actitud positiva frente al manejo del dinero para cumplir objetivos a largo plazo.";
+
+                document.getElementById('circle2-7').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-8').style.backgroundColor = "#01c287";
+                document.getElementById('circle2-9').style.backgroundColor = "#01c287";
+                document.getElementById('life2-1').textContent = "Continúa alcanzando tus metas y establece nuevas más ambiciosas. Explora opciones de inversión, diversifica tus ahorros y planifica a largo plazo.\n\nUsa herramientas avanzadas como Kamina";
+
+
+            } else {
+                alert("Por favor ingrese un valor válido: critico, en riesgo, excelente.");
+            }
+        };
+
+
+        loadMoney(subscore_money);
+
+        loadPsychology(subscore_psycho);
+
+        loadLife(subscore_life);
+
+        function calcularTransform(score) {
+            const inicio = -5;
+            const fin = -92;
+            const proporcion = (score / 100) * (fin - inicio) + inicio;
+            return Math.round(proporcion);
+        }
+        function transformBorde(score) {
+            const inicio = -4;
+            const fin = -9;
+            const proporcion = (score / 100) * (fin - inicio) + inicio;
+            return Math.round(proporcion);
+        }
+
+        function transformCustom(score, inicio, fin) {
+            console.log(inicio)
+            console.log(fin)
+            console.log("score interno" + score)
+            const proporcion = (score / 100) * (fin - inicio) + inicio;
+            console.log(Math.round(proporcion));
+            return Math.round(proporcion);
+        };
+
+        function transformIzquierda(score, inicio, fin) {
+
+            console.log("Inicio:", inicio);
+            console.log("Fin:", fin);
+            console.log("Score interno:", score);
+
+            // Proporción lineal para valores entre 1 y 5
+            const proporcion = (score - 1) / (5 - 1) * (fin - inicio) + inicio;
+            console.log("proporcion = " + proporcion);
+            console.log("Proporción calculada:", Math.round(proporcion));
+
+            return Math.round(proporcion);
+        }
+        function transformDerecha(score, inicio, fin) {
+
+            console.log("Inicio:", inicio);
+            console.log("Fin:", fin);
+            console.log("Score interno:", score);
+
+            // Proporción lineal para valores entre 95 y 100
+            const proporcion = (score - 95) / (100 - 95) * (fin - inicio) + inicio;
+
+            console.log("Proporción calculada:", Math.round(proporcion));
+
+            return Math.round(proporcion);
+        }
+
+        window.onload = function () {
+            const container = document.getElementById('squareContainer');
+
+
+            const numberOfSquares = 100; // 100 cuadrados
+            const maxHeight = 22; // Altura máxima de un cuadrado
+
+            // Ajuste de la frecuencia para 3 hundiduras
+            const frequency = (3 * 2 * Math.PI) / numberOfSquares; // Controla la frecuencia de la onda
+            const amplitude = maxHeight / 2; // Controla la amplitud de la onda
+
+            // Función para generar la altura en base a una onda cosenoidalssss
+            function calculateHeight(index) {
+                return amplitude * Math.cos(frequency * index) + amplitude;
+            }
+            const height_max = calculateHeight(100)
+            for (let i = 1; i < numberOfSquares + 1; i++) {
+                const square = document.createElement('div');
+                square.classList.add('square-2');
+                const height = calculateHeight(i);
+                square.style.height = `${30 + height}px`;
+                if (i == score) {
+                    square.style.height = `${80 + height_max}px`;
+                    console.log(getColor(getScoreStatus(score)));
+
+                    const percentage = i / 100; // Proporción del índice
+
+                    // Aplicar la lógica de degradado, pero haciendo que el amarillo dure más
+                    let red, green;
+
+                    if (percentage < 0.7) {
+                        // De rojo (255,0,0) a amarillo (255,255,0) más lentamente
+                        red = 255; // Mantener rojo en 255
+                        green = Math.floor(percentage / 0.7 * 255); // Aumenta el verde más despacio hasta 255
+                    } else {
+                        // De amarillo (255,255,0) a verde (0,255,0)
+                        red = Math.floor(255 - ((percentage - 0.7) / 0.3 * 255)); // Decrece el rojo hasta 0
+                        green = 255; // Mantener verde en 255
+                    }
+
+                    square.style.backgroundColor = `rgb(${red}, ${green}, 0)`; // Color RGB
+                    square.style.boxShadow = 'none';
+
+                    const cartelDiv = document.createElement('div');
+                    cartelDiv.classList.add('cartel');
+                    cartelDiv.id = 'cartel';
+
+                    cartelDiv.innerHTML = `
+                            <div class="stats-icon">
+                                <svg id="cartel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.82 17.37" height="25px" width="auto">
+                                    <defs>
+                                        <style>
+                                            .cartel-cls-1 {
+                                                fill: #fdb802;
+                                            }
+                                            .cartel-cls-2 {
+                                                fill: #dc3730;
+                                            }
+                                            .cartel-cls-3 {
+                                                fill: none;
+                                                stroke: #272087;
+                                                stroke-linecap: round;
+                                                stroke-linejoin: round;
+                                                stroke-width: .95px;
+                                            }
+                                            .cartel-cls-4 {
+                                                fill: #0fb980;
+                                            }
+                                            .cartel-cls-5 {
+                                                fill: #f4f3f9;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <g id="Layer_1-2" data-name="Layer_1">
+                                        <g>
+                                            <polyline class="cartel-cls-3" points=".48 16.41 8.06 8.83 14.03 14.79 26.25 2.58" />
+                                            <circle class="cartel-cls-5" cx="8.06" cy="8.83" r="2.58" />
+                                            <circle class="cartel-cls-1" cx="8.06" cy="8.83" r="2.06" />
+                                            <circle class="cartel-cls-5" cx="14.03" cy="14.79" r="2.58" />
+                                            <circle class="cartel-cls-2" cx="14.03" cy="14.79" r="2.06" />
+                                            <circle class="cartel-cls-5" cx="26.25" cy="2.58" r="2.58" />
+                                            <circle class="cartel-cls-4" cx="26.25" cy="2.58" r="2.06" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <span class="tu-camino">Tu camino</span> <br>
+                            <span class="mejorar">para mejorar</span>
+                        `;
+
+                    // Agregar el cartel al cuerpo del documento
+                    const nuevoTransformX = calcularTransform(score);
+
+
+
+
+
+
+                    //div comun para todo
+                    const div_comun = document.createElement('div');
+
+                    const div_marco = document.createElement('div');
+                    div_marco.classList.add("div-marco");
+
+                    // square.appendChild(cartelDiv);
+
+                    transform_borde = transformBorde(score);
+
+
+                    if (score <= 5) {
+                        const valor = transformIzquierda(score, -15, -45);
+                        console.log("valor en x" + valor)
+                        cartelDiv.style.transform = `translate(${valor}px, -182px)`; // Se mantiene -78px en el eje Y
+                        // // div_marco.style.transform = `translate(${transform_borde}px, -95px)`;
+
+
+                    }
+
+                    if (score >= 95) {
+                        const valor = transformDerecha(score, -45, -75);
+                        console.log("valor en x" + valor)
+                        cartelDiv.style.transform = `translate(${valor}px, -182px)`; // Se mantiene -78px en el eje Y
+                        // // div_marco.style.transform = `translate(${transform_borde}px, -95px)`;
+                    }
+
+
+                    div_comun.appendChild(square)
+                    div_comun.appendChild(cartelDiv)
+                    div_comun.appendChild(div_marco)
+
+                    container.appendChild(div_comun)
+
+
+                } else {
+                    container.appendChild(square);
+                }
+
+
+
+            }
+
+        };
+
+    </script>
+
+    </div>
+</body>
+
+</html>
